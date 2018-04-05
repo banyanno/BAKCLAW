@@ -1,0 +1,11 @@
+RewriteEngine on
+
+RewriteRule   ^/(.*)$  /application/views/$1  [R]
+
+RewriteCond $1 !^(index\.php|public|\.txt)
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php?$1
