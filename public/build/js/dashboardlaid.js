@@ -20,7 +20,7 @@ $(document).ready(function(){
   function ShowCaseRegis(){
     save_method = 'add';
       $("#dateregis").datepicker({
-        dateFormat: 'dd-mm-yy'
+        dateFormat: 'yy-mm-dd'
     });
     $('#formLAID')[0].reset(); // reset form on modals
     $('#ModalCaseRegis').modal('show'); // show bootstrap modal

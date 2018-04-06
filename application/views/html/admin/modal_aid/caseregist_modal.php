@@ -23,9 +23,10 @@
                                 <div class="form-group">
                                     <div class="col-sm-6">
                                         <label for="lawyer" class="control-label">ចុះថ្ងៃទី៖</label>
-                            
-                                        <input type="text" readonly="readonly" lass="form-control" id="dateregis" name="dateregis"> 
-                                      
+                                       
+                                        <input type="text" readonly="readonly" class="form-control" id="dateregis" name="dateregis" placeholder="yyyy-mm-dd"> 
+                                        
+
                                     </div>
                                      <div class="col-sm-6">
                                         <label class="control-label" for="project">ប្រភេទសំណុំរឿង៖</label> 
