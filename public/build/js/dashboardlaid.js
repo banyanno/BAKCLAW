@@ -6,7 +6,11 @@ var caseID=0;
 
 
 $(document).ready(function(){
-    
+
+    //$('#datetimepicker1').datetimepicker({
+    //    language: 'pt-BR'
+    //});
+
   maintableLAID = $("#maintableLAID").DataTable({
           'ajax': base_url +'/BAKCLAW/CaseRegis_Controller/fetchAllCaseRegis','order':[]
       });
@@ -15,6 +19,9 @@ $(document).ready(function(){
 // The function call when add new case registation 
   function ShowCaseRegis(){
     save_method = 'add';
+      $("#dateregis").datepicker({
+        dateFormat: 'dd-mm-yy'
+    });
     $('#formLAID')[0].reset(); // reset form on modals
     $('#ModalCaseRegis').modal('show'); // show bootstrap modal
     $('.modal-title').text('Add new case'); // Set Title to Bootstrap modal title

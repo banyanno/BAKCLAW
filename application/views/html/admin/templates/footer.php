@@ -18,7 +18,7 @@
     <script src="<?php echo base_url();?>public/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- iCheck -->
     <script src="<?php echo base_url();?>public/vendors/iCheck/icheck.min.js"></script>
-
+    <script src="<?php echo base_url();?>public/vendors/jquery/jquery-ui/jquery-ui.js"></script>
 
     <!-- Form Validation-->
 	<script src="<?php echo base_url();?>public/vendors/parsleyjs/dist/parsley.min.js"></script>

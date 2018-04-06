@@ -20,7 +20,7 @@
     <link href="<?php echo base_url();?>public/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url();?>public/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 	  <link href="<?php echo base_url();?>public/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-  
+    <link href="<?php echo base_url();?>public/vendors/jquery/jquery-ui/jquery-ui.css" rel="stylesheet">
     <!-- Custom Theme Style -->	 
     <link href="<?php echo base_url();?>public/build/css/custom.css" rel="stylesheet">
 	<link href="<?php echo base_url();?>public/build/css/formwizard.css" rel="stylesheet"> 

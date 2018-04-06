@@ -97,7 +97,7 @@
                                               <th scope="row">1</th>
                                               <td>Mark</td>
                                               <td>Otto</td>
-                                              <td><input type="checkbox"></td>
+                                              <td  align="center" valign="middle"><input type="checkbox"></td>
                                               <td><input type="checkbox"></td>
                                               <td>Edit Delete</td>
                                             </tr>
@@ -148,7 +148,7 @@
                                               <td>Mark</td>
                                               <td>Otto</td>
                                               <td>25</td>
-                                              <td><input type="checkbox"></td>
+                                              <td  align="center" valign="middle"><input type="checkbox"></td>
                                               <td>Edit Delete</td>
                                         </tr>
                                         <tr>
