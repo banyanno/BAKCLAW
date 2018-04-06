@@ -18,9 +18,6 @@
     <script src="<?php echo base_url();?>public/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- iCheck -->
     <script src="<?php echo base_url();?>public/vendors/iCheck/icheck.min.js"></script>
-   
-    <!-- jquery ui -->
-  <script src="<?php echo base_url();?>public/vendors/jquery/jquery-ui/jquery-ui.min.js"></script>
 
 
     <!-- Form Validation-->
@@ -48,8 +45,6 @@
     <script src="<?php echo base_url();?>public/build/js/custom.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>public/build/js/clients.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>public/build/js/dashboardlaid.js"></script>
-    <script type="text/javascript">
-          $("#dateregis").datepicker({});
-    </script>
+  
   </body>
 </html>

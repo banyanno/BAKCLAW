@@ -6,34 +6,39 @@
                         
                                 <!-- Text input-->
                                 <div class="form-group">
-                                <input id="clientid" name="clientid" type="hidden">
+                                <input id="caseclientid" name="caseclientid" type="hidden">
                                 </div>
                                 <div class="form-group">
-                                    <label for="lawyer" class="col-sm-2 control-label" for="codeno">ឈ្មោះ</label>
-                                    <div class="col-sm-10"> 
-                                        <input type="text"  class="form-control" id="clientid" name="clientid"  placeholder="Client Name">
-                                    </div>
+                                <div class="col-sm-12"> 
+                                        <label for="cientname" class="control-label" >ឈ្មោះ</label>
+                                        <input type="text"  class="form-control" id="clientname" name="clientname"  placeholder="Client Name">
                                 </div>
                                 
-                                    <div class="form-group">
-                                        <label for="lawyer" class="col-sm-2 control-label" >ភេទ</label>
-                                         <div class="col-sm-4">
-                                        <select class="form-control" name="lawyer" id="lawyer">
-                                    <option value="">ជ្រើសរើស មេធាវី</option>
-                                    <?php
-                                        foreach($lawyers as $lawyer){
-                                            echo "<option value='".$lawyer->id."'>".$lawyer->lawyer_name_kh."</option>";
-
-                                        }
-                                    ?>
-                                        
-                                        <!-- Code Php here -->
-                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-2"> 
+                                            <label for="clientage" class="control-label" >អាយុ៖</label>
+                                            <input type="text"  class="form-control" id="clientage" name="clientage"  placeholder="Age">
                                     </div>
-                                  
-                                    <!--<label class="col-sm-2" for="project"></label>-->
-                                    <div class="col-sm-6"> 
-                                              <label>  <input type="checkbox"> នីតិជន/អនីតជន</label>
+                                    <div class="col-sm-3">
+                                        <label for="lawyer" class="control-label" >ភេទ៖</label>
+                                      <select class="form-control" name="clientsex" id="clientsex">
+                                            <option value="">...</option>
+                                            <option value="ស្រី">ស្រី</option>
+                                            <option value="ប្រុស">ប្រុស</option>
+                                            <!--
+                                                <?php
+                                                    foreach($lawyers as $lawyer){
+                                                        echo "<option value='".$lawyer->id."'>".$lawyer->lawyer_name_kh."</option>";
+
+                                                    }
+                                                ?>
+                                                -->   
+                                                    <!-- Code Php here -->
+                                        </select>
+                                    </div>
+                                     <div class="col-sm-7"> 
+                                              <label class="control-label"><input type="checkbox"> នីតិជន/អនីតជន</label>
                                     </div>
                                 </div>
                                 
@@ -42,8 +47,9 @@
                                
                              
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label">សំគាល់</label>
-                                    <div class="col-sm-10">
+                                   
+                                    <div class="col-sm-12">
+                                    <label class="control-label">សំគាល់</label>
                                     <textarea class="resizable_textarea form-control" placeholder="..."></textarea>
                                     </div>
                                 </div>

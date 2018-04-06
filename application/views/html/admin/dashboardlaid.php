@@ -64,7 +64,7 @@
                                                     <th><label class="control-label-kh">បទចោទប្រកាន់</label></th>
                                                     <th><label class="control-label-kh">បញ្ជូនមកដោយ</label></th>
                                                     <th><label class="control-label-kh">កំណត់សំគាស់</label></th>
-                                                                                                                                                     
+                                                    <th><label class="control-label-kh">ពត័មានលម្អិត</label></th>                                                                                                
                                                 </tr>
                                             </thead>
                                       
@@ -81,7 +81,7 @@
                         <div class="panel-heading">កូនក្តី</div>
                         <div class="panel-body"> 
                                 <div class="x_content"> <!-- start x content -->
-                                        <table class="table">
+                                        <table class="table table-bordered">
                                           <thead>
                                             <tr>
                                               <th>#</th>
@@ -131,14 +131,14 @@
                         <div class="panel-heading">ភាគីម្ខាងទៀត/ដើមបណ្តឹងរដ្ឋប្បវេណី</div>
                         <div class="panel-body">  	    
                                 <div class="x_content"> <!-- start x content -->
-                                    <table class="table">
+                                    <table class="table table-bordered">
                                       <thead>
                                         <tr>
                                         <th>#</th>
                                               <th>ឈ្មោះ</th>
                                               <th>ភេទ</th>
-                                              <th>នីតិជន</th>
-                                              <th>អនីតិជន</th>
+                                              <th>អាយុ</th>
+                                              <th>នីតិជន/អនីតិជន</th>
                                               <th>Action</th>
                                         </tr>
                                       </thead>
@@ -147,15 +147,7 @@
                                         <th scope="row">1</th>
                                               <td>Mark</td>
                                               <td>Otto</td>
-                                              <td><input type="checkbox"></td>
-                                              <td><input type="checkbox"></td>
-                                              <td>Edit Delete</td>
-                                        </tr>
-                                        <tr>
-                                        <th scope="row">1</th>
-                                              <td>Mark</td>
-                                              <td>Otto</td>
-                                              <td><input type="checkbox"></td>
+                                              <td>25</td>
                                               <td><input type="checkbox"></td>
                                               <td>Edit Delete</td>
                                         </tr>
@@ -163,7 +155,15 @@
                                         <th scope="row">1</th>
                                               <td>Mark</td>
                                               <td>Otto</td>
+                                              <td>85</td>
                                               <td><input type="checkbox"></td>
+                                              <td>Edit Delete</td>
+                                        </tr>
+                                        <tr>
+                                        <th scope="row">1</th>
+                                              <td>Mark</td>
+                                              <td>Otto</td>
+                                              <td>85</td>
                                               <td><input type="checkbox"></td>
                                               <td>Edit Delete</td>
                                         </tr>
@@ -312,10 +312,10 @@
         </div>
     <!-- /.modal-dialog -->
     </div>
-</div> <!-- End modal Case Registration -->
+</div> <!-- End Modal Case Registration -->
 
 <div id="ModalClient" class="modal fade" tabindex="-1" aria-hidden="true"><!-- Start Modal client -->
-    <div class="modal-dialog" style="width:55%;">
+    <div class="modal-dialog" style="width:30%;">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title text-xs-center">កូនក្តី</h4>

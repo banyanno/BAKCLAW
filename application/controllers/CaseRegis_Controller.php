@@ -36,6 +36,88 @@ public function dashboardlaid()
 		$this->load->view('html/admin/templates/footer');		
 		
 	}
+public function insertNewCaseRegis()
+{
+	$validator = array('success'=>false,'message'=>array());
+	/*$validate_data=array(
+		array(
+			'field' => 'clientsex',
+			'label' => 'Client Sex',
+			'rules' => 'required'
+		),
+		array(
+			'field' => 'clientname',
+			'label' => 'Client Name',
+			'rules' => 'required'
+		)
+	);*/
+	//$this->form_validation->set_rules();
+	//$this->form_validation->set_error_delimiters('<p class="text-danger">','</p>');
+	
+	//if ($this->input->post('clientname') && $this->input->post('clientsex') && $this->input->post('clientage') )
+	//if($this->form_validation->run() === true) 
+	//{
+		$data = array();
+		$data['caseno'] =$this->input->post('caseno');
+		$data['dateregis']=$this->input->post('dateregis');
+		$data['typeofcase']=$this->input->post('typeofcase');
+		$data['accusations']=$this->input->post('accusations');
+		$data['getfrom']=$this->input->post('getfrom');
+		$data['casenote']=$this->input->post('casenote');
+		//$data['message'] = "posted successfully!";	
+		//$this->Parasys_model->insertClient($data);
+		//echo json_encode ($this->Parasys_model->insertClient($data));
+		//error_log(json_encode($data),3,"yano.log");
+		$insertstatus = $this->CaseRegis_model->insertCaseRegis($data);
+		if ($insertstatus===true){
+			$validator['success'] = true;
+			$validator['messages'] = "Successfully added case register";
+		}else {
+			$validator['success'] = false;
+			$validator['messages'] = "Error while inserting the information into the database";
+			
+		}
+		//echo json_encode($data);
+
+		//if ($insertstatus){
+			//echo "Success";
+		//}
+	/*}else {
+		$validator['success'] = false;
+		foreach ($_POST as $key => $value) {
+			$validator['messages'][$key] = form_error($key);
+		}			
+	} // /else
+*/
+	//echo 'Insert successfull';
+	echo json_encode($validator);
+
+}
+
+public function Edit_CaseRegist($caseID){
+	//echo $clientid;
+	   $validator = array('success' => false, 'messages' => array());
+	   $data = array();
+	   $data['caseno'] =$this->input->post('caseno');
+	   $data['dateregis']=$this->input->post('dateregis');
+	   $data['typeofcase']=$this->input->post('typeofcase');
+	   $data['accusations']=$this->input->post('accusations');
+	   $data['getfrom']=$this->input->post('getfrom');
+	   $data['casenote']=$this->input->post('casenote');
+
+	   $update = $this->CaseRegis_model->Edit_CaseRegist($caseID,$data);
+	   
+	   if ($update==1){
+		   $validator['success'] = true;
+		   $validator['messages'] = "Successfully update";
+	   
+	   }else{
+		   $validator['success'] = false;
+		   $validator['messages'] = "Error while inserting the information into the database";
+	   }
+   
+	   echo json_encode($validator);
+}
 // ============== Select In formation of Case Registration ====================================
 public function fetchAllCaseRegis(){
 	$caseRegis = $this->CaseRegis_model->fetchAllCassRegis();
@@ -48,14 +130,15 @@ public function fetchAllCaseRegis(){
 				       Action   <span class="caret"></span>
 				  </button>
 				  <ul class="dropdown-menu">			  	
-				    <li><a href="#" data-toggle="modal" data-target="#editStudentModal" onclick="updateStudent('.$value['caseid'].')">កែប្រែសំណុំរឿង</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">Delete Case</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="showClient()">បង្កើតកូនក្តី</a></li>				    
+				    <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="ShowClientCase()">បង្កើតកូនក្តី</a></li>				    
 					<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">បង្កើតភាគីបណ្តឹង</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">ទទួលរឿងក្តីពី</a></li>				    
 				  </ul>
 				</div>';
-
+		$viewdetial = '<!-- Single button glyphicons glyphicons-sort-by-alphabet -->
+				<button class="btn btn-warning btn-xs"  onclick="get_clientforUpdate('. $value['caseid'] .')"><i class="glyphicon glyphicon-hand-down"></i></button>
+				<button class="btn btn-danger btn-xs" onclick="ShowEditeCase('. $value['caseid'] .')"><i class="glyphicon glyphicon-edit"></i></button>
+				';
 			$result['data'][$key] = array(
 					//$x,
 					$button,
@@ -65,13 +148,18 @@ public function fetchAllCaseRegis(){
 					$value['accusations'],
 					$value['getfrom'],
 					$value['casenote'],
-					
+					$viewdetial
 				);
 				//$x++;
 		}/// foreach
 	
 		echo json_encode($result);
-}
-}
+}//============================ End load all case register
 
+// View by Case ID to update or do something
+public function Get_CaseByID($id){
+	$caseByID = $this->CaseRegis_model->Get_CaseBy_ID($id);
+	echo json_encode($caseByID);
+}
+}
 ?>
