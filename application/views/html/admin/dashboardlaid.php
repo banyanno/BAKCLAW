@@ -53,7 +53,7 @@
                 <div class="panel panel-default"> <!-- Begining Panel -->
                         <div class="panel-heading">បញ្ជីកូនក្តីនិងពាក្យបណ្តឺង</div>
                         <div class="panel-body">  	    
-                                <div class="form-group" id="load_table">
+                              
                                         <table id="maintableLAID"  class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
@@ -69,7 +69,7 @@
                                             </thead>
                                       
                                         </table>
-                                </div>
+                               
                           </div>
                     </div><!-- Ending Panel -->
           </div>
@@ -81,43 +81,16 @@
                         <div class="panel-heading">កូនក្តី</div>
                         <div class="panel-body"> 
                                 <div class="x_content"> <!-- start x content -->
-                                        <table class="table table-bordered">
+                                        <table id="tableclientadult" class="table table-striped table-bordered">
                                           <thead>
                                             <tr>
                                               <th>#</th>
                                               <th>ឈ្មោះ</th>
                                               <th>ភេទ</th>
-                                              <th>នីតិជន</th>
-                                              <th>អនីតិជន</th>
-                                              <th>Action</th>
+                                              <th>អាយុ</th>
                                             </tr>
                                           </thead>
-                                          <tbody>
-                                            <tr>
-                                              <th scope="row">1</th>
-                                              <td>Mark</td>
-                                              <td>Otto</td>
-                                              <td  align="center" valign="middle"><input type="checkbox"></td>
-                                              <td><input type="checkbox"></td>
-                                              <td>Edit Delete</td>
-                                            </tr>
-                                            <tr>
-                                            <th scope="row">1</th>
-                                              <td>Mark</td>
-                                              <td>Otto</td>
-                                              <td><input type="checkbox"></td>
-                                              <td><input type="checkbox"></td>
-                                              <td>Edit Delete</td>
-                                            </tr>
-                                            <tr>
-                                            <th scope="row">1</th>
-                                              <td>Mark</td>
-                                              <td>Otto</td>
-                                              <td><input type="checkbox"></td>
-                                              <td><input type="checkbox"></td>
-                                              <td>Edit Delete</td>
-                                            </tr>
-                                          </tbody>
+                                          
                                         </table>
                     
                                       </div> <!-- End x content -->
@@ -131,44 +104,16 @@
                         <div class="panel-heading">ភាគីម្ខាងទៀត/ដើមបណ្តឹងរដ្ឋប្បវេណី</div>
                         <div class="panel-body">  	    
                                 <div class="x_content"> <!-- start x content -->
-                                    <table class="table table-bordered">
+                                    <table id="tableclientminor" class="table table-striped table-bordered">
                                       <thead>
                                         <tr>
-                                        <th>#</th>
+                                            ​​​​​​  <th>#</th>
                                               <th>ឈ្មោះ</th>
                                               <th>ភេទ</th>
                                               <th>អាយុ</th>
-                                              <th>នីតិជន/អនីតិជន</th>
-                                              <th>Action</th>
                                         </tr>
                                       </thead>
-                                      <tbody>
-                                        <tr>
-                                        <th scope="row">1</th>
-                                              <td>Mark</td>
-                                              <td>Otto</td>
-                                              <td>25</td>
-                                              <td  align="center" valign="middle"><input type="checkbox"></td>
-                                              <td>Edit Delete</td>
-                                        </tr>
-                                        <tr>
-                                        <th scope="row">1</th>
-                                              <td>Mark</td>
-                                              <td>Otto</td>
-                                              <td>85</td>
-                                              <td><input type="checkbox"></td>
-                                              <td>Edit Delete</td>
-                                        </tr>
-                                        <tr>
-                                        <th scope="row">1</th>
-                                              <td>Mark</td>
-                                              <td>Otto</td>
-                                              <td>85</td>
-                                              <td><input type="checkbox"></td>
-                                              <td>Edit Delete</td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
+                                     </table>
                 
                                   </div> <!-- End x content -->
                           </div>
@@ -321,7 +266,7 @@
                 <h4 class="modal-title text-xs-center">កូនក្តី</h4>
             </div>
             <div class="modal-body"><!--Start modal body -->
-                <div id="add-class-messages"></div>
+                <div id="messageclient"></div>
                     <div class="container-fluid">
                         <div class="row">
                         <?php 							

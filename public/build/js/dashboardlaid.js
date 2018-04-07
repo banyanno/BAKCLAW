@@ -4,6 +4,9 @@ var maintableLAID;
 var base_url = window.location.origin;
 var caseID=0;
 
+//===================== Declear variable in Module client case regis===============================
+var tableclientadult;
+var tableclientminor;
 
 $(document).ready(function(){
 
@@ -27,12 +30,7 @@ $(document).ready(function(){
     $('.modal-title').text('Add new case'); // Set Title to Bootstrap modal title
     }
 
-// function show case in client     
-function ShowClientCase(){
-    $('#forclient')[0].reset(); // reset form on modals
-    $('#ModalClient').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Add new client'); // Set Title to Bootstrap modal title
-} 
+
 function ShowEditeCase(id) {
     save_method = 'update';
      $('#formLAID')[0].reset(); // reset form on modals
@@ -135,6 +133,119 @@ function ShowEditeCase(id) {
             //}
         }); 
 }
+
+//=============================================Start Module Client that related Case Registration============================================
+  
+function ShowClientCase(case_id){
+    caseID=case_id;
+    save_method = 'add';
+    $('#formclient')[0].reset(); // reset form on modals
+    $('[name="caseregisid"]').val(case_id); // show case regis id for save to client
+    $('#ModalClient').modal('show'); // show bootstrap modal
+    $('.modal-title').text('Add new client'); // Set Title to Bootstrap modal title
+} 
+
+function FetchClientByCase(caseid){
+    
+ 
+   
+    tableclientadult = $("#tableclientadult").DataTable({
+            'ajax': base_url +'/BAKCLAW/CaseRegis_Controller/GetClientByCaseAndAdult/'+caseid,'order':[]
+});
+    
+    tableclientadult.destroy();
+    
+    tableclientminor = $("#tableclientminor").DataTable({
+        'ajax': base_url +'/BAKCLAW/CaseRegis_Controller/GetClientByCaseAndminor/'+caseid,'order':[]
+    });
+    tableclientminor.destroy();
+}
+
+/*if ( $.fn.dataTable.isDataTable( '#example' ) ) {
+    table = $('#example').DataTable();
+}
+else {
+    table = $('#example').DataTable( {
+        paging: false
+    } );
+}*/
+
+function SaveOrUpdateClient(){
+    var url;
+   $(".form-group").removeClass('has-error').removeClass('has-success');
+   $("#messageclient").html('');
+   $('.text-danger').remove();
+   if (save_method == 'add') {
+       url = base_url +'/BAKCLAW/CaseRegis_Controller/InsertClient';
+   }
+   else {
+       //alert('update' + clientID);
+       url =base_url +'/BAKCLAW/CaseRegis_Controller/Edit_CaseRegist/'+ caseID;   
+   }
+
+ // ajax adding data to database
+  
+ var data = $("#formclient").serialize();
+                $.ajax({
+                url: url,
+                type: "POST",
+                data: data,
+                dataType: "JSON",
+                success:function(response) {
+                    alert(response.success);
+                    if (response.success==true){
+                        
+                        $("#messageclient").html('<div class="alert alert-success alert-dismissible" role="alert">' +
+                            '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+                            response.messages +
+                            '</div>');
+                            //maintableLAID.ajax.reload(null, false);
+                            FetchClientByCase(caseID);
+                        if(save_method == 'add'){
+                            $("#formclient")[0].reset();
+                            $(".form-group").removeClass('has-error').removeClass('has-success');
+                            $(".text-danger").remove();	
+                            //$("#add-class-messages").html('');
+                            //FetchClientByCase();
+                        } else{
+                            $("#messageclient").html('');
+                            $("#formclient")[0].reset();
+                            $(".form-group").removeClass('has-error').removeClass('has-success');
+                            $(".text-danger").remove();	
+                            $('#ModalClient').modal('hide');
+                        }
+                        
+                    }
+                    else{
+                        
+                        $.each(response.messages, function (index, value) {
+                            
+                            var key = $("#" + index);
+                            altert(key);
+                            key.closest('.form-group')
+                                .removeClass('has-error')
+                                .removeClass('has-success')
+                                .addClass(value.length > 0 ? 'has-error' : 'has-success')
+                                .find('.text-danger').remove();
+                                key.after(value);
+
+                        });
+                    }
+                    //if success close modal and reload ajax table
+                    //alert('Save new client successfull');
+                    //$('#ModalExample').modal('hide');
+                    //location.reload();// for reload a page
+                }
+                //,
+                //error: function (jqXHR, textStatus, errorThrown) {
+                //    alert('Error adding / update data');
+                //}
+                });
+
+}
+
+//============================================= End Module client =============================================
+
 
 
 

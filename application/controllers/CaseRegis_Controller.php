@@ -15,7 +15,7 @@ class CaseRegis_Controller extends CI_Controller{
 		redirect('', 'refresh');
     }
 }
-// ================= Function to display Case Registration ===============================
+//================= Call dashboard Case Registration ===============================
 public function dashboardlaid()
 	{
 		$this->load->model('Lawyers_model');
@@ -36,6 +36,8 @@ public function dashboardlaid()
 		$this->load->view('html/admin/templates/footer');		
 		
 	}
+
+// ============== Start module Case Registration ====================================
 public function insertNewCaseRegis()
 {
 	$validator = array('success'=>false,'message'=>array());
@@ -118,7 +120,7 @@ public function Edit_CaseRegist($caseID){
    
 	   echo json_encode($validator);
 }
-// ============== Select In formation of Case Registration ====================================
+
 public function fetchAllCaseRegis(){
 	$caseRegis = $this->CaseRegis_model->fetchAllCassRegis();
 		$result = array('data'=>array());
@@ -127,16 +129,16 @@ public function fetchAllCaseRegis(){
 
 		$button = '<div class="btn-group">
 				  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				       Action   <span class="caret"></span>
+				    បង្កើត<span class="caret"></span>
 				  </button>
 				  <ul class="dropdown-menu">			  	
-				    <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="ShowClientCase()">បង្កើតកូនក្តី</a></li>				    
+				    <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="ShowClientCase('.$value['caseid'].')">បង្កើតកូនក្តី</a></li>				    
 					<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">បង្កើតភាគីបណ្តឹង</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">ទទួលរឿងក្តីពី</a></li>				    
 				  </ul>
 				</div>';
 		$viewdetial = '<!-- Single button glyphicons glyphicons-sort-by-alphabet -->
-				<button class="btn btn-warning btn-xs"  onclick="get_clientforUpdate('. $value['caseid'] .')"><i class="glyphicon glyphicon-hand-down"></i></button>
+				<button class="btn btn-warning btn-xs"  onclick="FetchClientByCase('. $value['caseid'] .')"><i class="glyphicon glyphicon-hand-down"></i></button>
 				<button class="btn btn-danger btn-xs" onclick="ShowEditeCase('. $value['caseid'] .')"><i class="glyphicon glyphicon-edit"></i></button>
 				';
 			$result['data'][$key] = array(
@@ -154,12 +156,112 @@ public function fetchAllCaseRegis(){
 		}/// foreach
 	
 		echo json_encode($result);
-}//============================ End load all case register
+}//============================ End load all case register =======================================================
 
 // View by Case ID to update or do something
 public function Get_CaseByID($id){
 	$caseByID = $this->CaseRegis_model->Get_CaseBy_ID($id);
 	echo json_encode($caseByID);
 }
+//============================= End module Case registration =====================================
+
+/*
+	Start Module Cliet that related to case registrator =============================
+*/
+
+function InsertClient(){
+		$validator = array('success'=>false,'message'=>array());
+		$data = array();
+		$data['caseregisid'] =$this->input->post('caseregisid');
+		$data['clientname']=$this->input->post('clientname');
+		$data['clientsex']=$this->input->post('clientsex');
+		$data['clientage']=$this->input->post('clientage');
+		$data['adults']=$this->input->post('adults');
+		$data['clientnote']=$this->input->post('clientnote');
+		
+		$insertstatus = $this->CaseRegis_model->InsertNewClient($data);
+		if ($insertstatus===true){
+			$validator['success'] = true;
+			$validator['messages'] = "Successfully added";
+		}else {
+			$validator['success'] = false;
+			$validator['messages'] = "Error while inserting the information into the database";
+		}
+	echo json_encode($validator);
+}
+
+function GetClientByCaseAndAdult($caseid){
+	$clientbycase = $this->CaseRegis_model->Get_ClientByCaseWithAdult($caseid,true);
+	$result = array('data'=>array());
+		$x=1;
+		foreach ($clientbycase as $key => $value) {
+
+		/*$button = '<div class="btn-group">
+				  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    បង្កើត<span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu">			  	
+				    <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="ShowClientCase('.$value['caseid'].')">បង្កើតកូនក្តី</a></li>				    
+					<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">បង្កើតភាគីបណ្តឹង</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">ទទួលរឿងក្តីពី</a></li>				    
+				  </ul>
+				</div>';*/
+		/*$viewdetial = '<!-- Single button glyphicons glyphicons-sort-by-alphabet -->
+				<button class="btn btn-warning btn-xs"  onclick="get_clientforUpdate('. $value['caseid'] .')"><i class="glyphicon glyphicon-hand-down"></i></button>
+				<button class="btn btn-danger btn-xs" onclick="ShowEditeCase('. $value['caseid'] .')"><i class="glyphicon glyphicon-edit"></i></button>
+				';*/
+			$result['data'][$key] = array(
+					$x,
+					//$button,
+					//$value['caseclientid'],
+					//$value['caseregisid'],
+					$value['clientname'],
+					$value['clientsex'],
+					$value['clientage'],
+					$value['adults']
+				);
+				$x++;
+		}/// foreach
+	
+		echo json_encode($result);
+}
+
+
+function GetClientByCaseAndminor($caseid){
+	$clientbycase = $this->CaseRegis_model->Get_ClientByCaseWithAdult($caseid,false);
+	$result = array('data'=>array());
+	$x=1;
+	foreach ($clientbycase as $key => $value) {
+
+	/*$button = '<div class="btn-group">
+			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				បង្កើត<span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu">			  	
+				<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="ShowClientCase('.$value['caseid'].')">បង្កើតកូនក្តី</a></li>				    
+				<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">បង្កើតភាគីបណ្តឹង</a></li>
+				<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">ទទួលរឿងក្តីពី</a></li>				    
+			  </ul>
+			</div>';*/
+	/*$viewdetial = '<!-- Single button glyphicons glyphicons-sort-by-alphabet -->
+			<button class="btn btn-warning btn-xs"  onclick="get_clientforUpdate('. $value['caseid'] .')"><i class="glyphicon glyphicon-hand-down"></i></button>
+			<button class="btn btn-danger btn-xs" onclick="ShowEditeCase('. $value['caseid'] .')"><i class="glyphicon glyphicon-edit"></i></button>
+			';*/
+		$result['data'][$key] = array(
+				$x,
+				//$button,
+				//$value['caseclientid'],
+				//$value['caseregisid'],
+				$value['clientname'],
+				$value['clientsex'],
+				$value['clientage'],
+				//$value['adults']
+			);
+			$x++;
+	}/// foreach
+
+	echo json_encode($result);
+}
+
 }
 ?>

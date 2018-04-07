@@ -21,7 +21,7 @@ function RefreshClientList(){
     clientTable.ajax.reload(null, false);
 }
 
-function save() {
+function Save() {
     var url;
      $(".form-group").removeClass('has-error').removeClass('has-success');
     $("#add-class-messages").html('');
