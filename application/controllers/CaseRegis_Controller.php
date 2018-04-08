@@ -194,22 +194,19 @@ function GetClientByCaseAndAdult($caseid){
 	$clientbycase = $this->CaseRegis_model->Get_ClientByCaseWithAdult($caseid,true);
 	$result = array('data'=>array());
 		$x=1;
+		$isadult=false;
 		foreach ($clientbycase as $key => $value) {
+		
+		if ($value['adults']=='1'){
+			$isadult='false';
 
-		/*$button = '<div class="btn-group">
-				  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    បង្កើត<span class="caret"></span>
-				  </button>
-				  <ul class="dropdown-menu">			  	
-				    <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="ShowClientCase('.$value['caseid'].')">បង្កើតកូនក្តី</a></li>				    
-					<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">បង្កើតភាគីបណ្តឹង</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">ទទួលរឿងក្តីពី</a></li>				    
-				  </ul>
-				</div>';*/
-		/*$viewdetial = '<!-- Single button glyphicons glyphicons-sort-by-alphabet -->
-				<button class="btn btn-warning btn-xs"  onclick="get_clientforUpdate('. $value['caseid'] .')"><i class="glyphicon glyphicon-hand-down"></i></button>
-				<button class="btn btn-danger btn-xs" onclick="ShowEditeCase('. $value['caseid'] .')"><i class="glyphicon glyphicon-edit"></i></button>
-				';*/
+		}else{
+			$isadult='true';
+		}
+		
+		$adultsval = '<!-- Single button glyphicons glyphicons-sort-by-alphabet -->
+				<input type="checkbox" class="minimal" name="adults[]" id='. $value['caseclientid'] .' value='. $value['adults'] .' checked='. $isadult .'>'. $isadult .'</input>
+				';
 			$result['data'][$key] = array(
 					$x,
 					//$button,
@@ -218,7 +215,7 @@ function GetClientByCaseAndAdult($caseid){
 					$value['clientname'],
 					$value['clientsex'],
 					$value['clientage'],
-					$value['adults']
+					$adultsval
 				);
 				$x++;
 		}/// foreach
@@ -231,22 +228,18 @@ function GetClientByCaseAndminor($caseid){
 	$clientbycase = $this->CaseRegis_model->Get_ClientByCaseWithAdult($caseid,false);
 	$result = array('data'=>array());
 	$x=1;
+	$isminor='false';
 	foreach ($clientbycase as $key => $value) {
-
-	/*$button = '<div class="btn-group">
-			  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				បង្កើត<span class="caret"></span>
-			  </button>
-			  <ul class="dropdown-menu">			  	
-				<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="ShowClientCase('.$value['caseid'].')">បង្កើតកូនក្តី</a></li>				    
-				<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">បង្កើតភាគីបណ្តឹង</a></li>
-				<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">ទទួលរឿងក្តីពី</a></li>				    
-			  </ul>
-			</div>';*/
-	/*$viewdetial = '<!-- Single button glyphicons glyphicons-sort-by-alphabet -->
-			<button class="btn btn-warning btn-xs"  onclick="get_clientforUpdate('. $value['caseid'] .')"><i class="glyphicon glyphicon-hand-down"></i></button>
-			<button class="btn btn-danger btn-xs" onclick="ShowEditeCase('. $value['caseid'] .')"><i class="glyphicon glyphicon-edit"></i></button>
-			';*/
+	
+	if ($value['adults']=='1'){
+			$isminor='true';
+		}else {
+			$isminor='false';
+		}
+		
+		$Minorval = '<!-- Single button glyphicons glyphicons-sort-by-alphabet -->
+				<input type="checkbox" class="minimal"   value='. $value['adults'] .' checked="'. $isminor .'">'. $isminor .' aa</input>
+				';
 		$result['data'][$key] = array(
 				$x,
 				//$button,
@@ -255,7 +248,7 @@ function GetClientByCaseAndminor($caseid){
 				$value['clientname'],
 				$value['clientsex'],
 				$value['clientage'],
-				//$value['adults']
+				$Minorval
 			);
 			$x++;
 	}/// foreach

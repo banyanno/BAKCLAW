@@ -40,8 +40,21 @@
                                     
                                 </div>
                                 <div class="form-group">
-                                    <div class="col-sm-12"> 
-                                              <label class="control-label"><input id="adults" type="checkbox"> នីតិជន/អនីតជន</label>
+                                    <div class="col-sm-12">
+
+                                                <!--
+                                              <label class="control-label"><input id="adults" name="adults" type="checkbox" value="1"> នីតិជន/អនីតជន</label>
+                                                -->    
+                                        <div class="radio">
+                                            <label>
+                                            <input type="radio" name="adults" id="adult" value="1">
+                                            នីតិជន
+                                            </label>
+                                            <label>
+                                            <input type="radio" name="adults" id="minner" value="0">
+                                            អនីតិជន
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
 

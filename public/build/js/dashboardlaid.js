@@ -192,7 +192,7 @@ function SaveOrUpdateClient(){
                 data: data,
                 dataType: "JSON",
                 success:function(response) {
-                    alert(response.success);
+                    
                     if (response.success==true){
                         
                         $("#messageclient").html('<div class="alert alert-success alert-dismissible" role="alert">' +
