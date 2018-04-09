@@ -41,24 +41,7 @@ public function dashboardlaid()
 public function insertNewCaseRegis()
 {
 	$validator = array('success'=>false,'message'=>array());
-	/*$validate_data=array(
-		array(
-			'field' => 'clientsex',
-			'label' => 'Client Sex',
-			'rules' => 'required'
-		),
-		array(
-			'field' => 'clientname',
-			'label' => 'Client Name',
-			'rules' => 'required'
-		)
-	);*/
-	//$this->form_validation->set_rules();
-	//$this->form_validation->set_error_delimiters('<p class="text-danger">','</p>');
 	
-	//if ($this->input->post('clientname') && $this->input->post('clientsex') && $this->input->post('clientage') )
-	//if($this->form_validation->run() === true) 
-	//{
 		$data = array();
 		$data['caseno'] =$this->input->post('caseno');
 		$data['dateregis']=$this->input->post('dateregis');
@@ -66,10 +49,7 @@ public function insertNewCaseRegis()
 		$data['accusations']=$this->input->post('accusations');
 		$data['getfrom']=$this->input->post('getfrom');
 		$data['casenote']=$this->input->post('casenote');
-		//$data['message'] = "posted successfully!";	
-		//$this->Parasys_model->insertClient($data);
-		//echo json_encode ($this->Parasys_model->insertClient($data));
-		//error_log(json_encode($data),3,"yano.log");
+		
 		$insertstatus = $this->CaseRegis_model->insertCaseRegis($data);
 		if ($insertstatus===true){
 			$validator['success'] = true;
@@ -79,19 +59,7 @@ public function insertNewCaseRegis()
 			$validator['messages'] = "Error while inserting the information into the database";
 			
 		}
-		//echo json_encode($data);
-
-		//if ($insertstatus){
-			//echo "Success";
-		//}
-	/*}else {
-		$validator['success'] = false;
-		foreach ($_POST as $key => $value) {
-			$validator['messages'][$key] = form_error($key);
-		}			
-	} // /else
-*/
-	//echo 'Insert successfull';
+		
 	echo json_encode($validator);
 
 }
@@ -124,26 +92,27 @@ public function Edit_CaseRegist($caseID){
 public function fetchAllCaseRegis(){
 	$caseRegis = $this->CaseRegis_model->fetchAllCassRegis();
 		$result = array('data'=>array());
-		//$x=1;
+		$x=1;
 		foreach ($caseRegis as $key => $value) {
-
-		$button = '<div class="btn-group">
-				  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    បង្កើត<span class="caret"></span>
-				  </button>
-				  <ul class="dropdown-menu">			  	
-				    <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="ShowClientCase('.$value['caseid'].')">បង្កើតកូនក្តី</a></li>				    
-					<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">បង្កើតភាគីបណ្តឹង</a></li>
-					<li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">ទទួលរឿងក្តីពី</a></li>				    
-				  </ul>
-				</div>';
+	
 		$viewdetial = '<!-- Single button glyphicons glyphicons-sort-by-alphabet -->
-				<button class="btn btn-warning btn-xs"  onclick="FetchClientByCase('. $value['caseid'] .')"><i class="glyphicon glyphicon-hand-down"></i></button>
-				<button class="btn btn-danger btn-xs" onclick="ShowEditeCase('. $value['caseid'] .')"><i class="glyphicon glyphicon-edit"></i></button>
+				<button class="btn btn-warning btn-xs btn-round"  onclick="FetchClientByCase('. $value['caseid'] .')"><i class="glyphicon glyphicon-hand-down"></i></button>
+				<button class="btn btn-danger btn-xs btn-round" onclick="ShowEditeCase('. $value['caseid'] .')" data-toggle="tooltip" data-pacement="botton" data-original-title="កែប្រសំណុំរឿង"><i class="glyphicon glyphicon-edit"></i></button>
+				<div class="btn-group">
+				<button type="button" class="btn btn-success btn-effect-ripple  dropdown-toggle btn-xs btn-round" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">បង្កើត...
+				  <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">			  	
+				  <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="ShowClientCase('.$value['caseid'].')">បង្កើតកូនក្តី</a></li>	
+				  <li class="divider"></li>			    
+				  <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">បង្កើតភាគីបណ្តឹង</a></li>
+				  <li class="divider"></li>
+				  <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">ទទួលរឿងក្តីពី</a></li>				    
+				</ul>
+			  </div>
 				';
 			$result['data'][$key] = array(
-					//$x,
-					$button,
+					$x,
 					$value['caseno'],
 					$value['dateregis'],
 					$value['typeofcase'],
@@ -152,7 +121,7 @@ public function fetchAllCaseRegis(){
 					$value['casenote'],
 					$viewdetial
 				);
-				//$x++;
+				$x++;
 		}/// foreach
 	
 		echo json_encode($result);
@@ -168,6 +137,10 @@ public function Get_CaseByID($id){
 /*
 	Start Module Cliet that related to case registrator =============================
 */
+public function Get_ClientByID($clientid){
+	$clientbyID = $this->CaseRegis_model->Get_ClientBy_ID($clientid);
+	echo json_encode($clientbyID);
+}
 
 function InsertClient(){
 		$validator = array('success'=>false,'message'=>array());
@@ -177,6 +150,7 @@ function InsertClient(){
 		$data['clientsex']=$this->input->post('clientsex');
 		$data['clientage']=$this->input->post('clientage');
 		$data['adults']=$this->input->post('adults');
+		$data['isclient']=$this->input->post('isclient');
 		$data['clientnote']=$this->input->post('clientnote');
 		
 		$insertstatus = $this->CaseRegis_model->InsertNewClient($data);
@@ -189,6 +163,46 @@ function InsertClient(){
 		}
 	echo json_encode($validator);
 }
+public function EditeClientByID($clientID){
+	//echo $clientid;
+	$validator = array('success' => false, 'messages' => array());
+	$data = array();
+	$data['clientname'] =$this->input->post('clientname');
+	$data['clientsex']=$this->input->post('clientsex');
+	$data['clientage']=$this->input->post('clientage');
+	$data['adults']=$this->input->post('adults');
+	$data['clientnote']=$this->input->post('clientnote');
+	
+	$update = $this->CaseRegis_model->Edit_Client($clientID,$data);
+	
+	if ($update==1){
+		$validator['success'] = true;
+		$validator['messages'] = "Successfully update";
+	
+	}else{
+		$validator['success'] = false;
+		$validator['messages'] = "Error while inserting the information into the database";
+	}
+	echo json_encode($validator);
+}
+
+public function DeletedClientByID($clientID){
+	$validator = array('success' => false, 'messages' => array());
+	$data = array();
+	$data['isdeleted '] ='1';
+	$update = $this->CaseRegis_model->Delete_Client($clientID,$data);
+	
+	if ($update==1){
+		$validator['success'] = true;
+		$validator['messages'] = "Successfully update";
+	
+	}else{
+		$validator['success'] = false;
+		$validator['messages'] = "Error while inserting the information into the database";
+	}
+	echo json_encode($validator);
+	
+}
 
 function GetClientByCaseAndAdult($caseid){
 	$clientbycase = $this->CaseRegis_model->Get_ClientByCaseWithAdult($caseid,true);
@@ -198,24 +212,26 @@ function GetClientByCaseAndAdult($caseid){
 		foreach ($clientbycase as $key => $value) {
 		
 		if ($value['adults']=='1'){
-			$isadult='false';
+			$isadult='checked';
 
 		}else{
-			$isadult='true';
+			$isadult='unchecked';
 		}
 		
 		$adultsval = '<!-- Single button glyphicons glyphicons-sort-by-alphabet -->
-				<input type="checkbox" class="minimal" name="adults[]" id='. $value['caseclientid'] .' value='. $value['adults'] .' checked='. $isadult .'>'. $isadult .'</input>
+				<input disabled type="checkbox" class="minimal" name="adults[]" id='. $value['caseclientid'] .' value='. $value['adults'] .' ' . $isadult .' >
 				';
-			$result['data'][$key] = array(
+		$actionadult='<button class="btn btn-warning btn-xs btn-round" onclick="ShowCaseToEdite('. $value['caseclientid'] .')"><i class="glyphicon glyphicon-edit"></i></button>
+				<button class="btn btn-danger btn-xs btn-round"  onclick="DeleteClient('. $value['caseclientid'] .')"><i class="glyphicon glyphicon-minus"></i></button>
+		';
+		$result['data'][$key] = array(
 					$x,
-					//$button,
-					//$value['caseclientid'],
-					//$value['caseregisid'],
 					$value['clientname'],
 					$value['clientsex'],
 					$value['clientage'],
-					$adultsval
+					$adultsval,
+					$value['clientnote'],
+					$actionadult
 				);
 				$x++;
 		}/// foreach
@@ -228,27 +244,28 @@ function GetClientByCaseAndminor($caseid){
 	$clientbycase = $this->CaseRegis_model->Get_ClientByCaseWithAdult($caseid,false);
 	$result = array('data'=>array());
 	$x=1;
-	$isminor='false';
+	$isminor='unchecked';
 	foreach ($clientbycase as $key => $value) {
-	
-	if ($value['adults']=='1'){
-			$isminor='true';
+	if($value['adults']=='1'){
+			$isminor='checked';
 		}else {
-			$isminor='false';
+			$isminor='unchecked';
 		}
 		
 		$Minorval = '<!-- Single button glyphicons glyphicons-sort-by-alphabet -->
-				<input type="checkbox" class="minimal"   value='. $value['adults'] .' checked="'. $isminor .'">'. $isminor .' aa</input>
+				<input disabled type="checkbox" class="minimal"   value='. $value['adults'] .' ' . $isminor .'>
+				';
+		$actionminor='<button class="btn btn-warning btn-xs btn-round" onclick="ShowCaseToEdite('. $value['caseclientid'] .')"><i class="glyphicon glyphicon-edit"></i></button>
+				<button class="btn btn-danger btn-xs btn-round"  onclick="DeleteClient('. $value['caseclientid'] .')"><i class="glyphicon glyphicon-minus"></i></button>
 				';
 		$result['data'][$key] = array(
 				$x,
-				//$button,
-				//$value['caseclientid'],
-				//$value['caseregisid'],
 				$value['clientname'],
 				$value['clientsex'],
 				$value['clientage'],
-				$Minorval
+				$Minorval,
+				$value['clientnote'],
+				$actionminor
 			);
 			$x++;
 	}/// foreach

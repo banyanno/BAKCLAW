@@ -8,7 +8,6 @@ class CaseRegis_model extends CI_Model{
        // Insert para system
 	//============= Start Case Registration ============================
 	
-	
     public function insertCaseRegis($caseregis)
 	{
 		$status=$this->db->insert('case_regis', $caseregis);
@@ -45,11 +44,18 @@ class CaseRegis_model extends CI_Model{
 		return ($status===true ? true : false);
 	}
 
-	public function Edeit_Client($clientID,$client){
+	public function Edit_Client($clientID,$client){
 		$this->db->where('caseclientid',$clientID);
 		$status=$this->db->update('case_client',$client);
 		return ($status === true ? true : false);
 	}
+
+	public function Delete_Client($clientID,$client){
+		$this->db->where('caseclientid',$clientID);
+		$status=$this->db->update('case_client',$client);
+		return ($status === true ? true : false);
+	}
+
 
 	public function Get_ClientBy_ID($clientid){
 		
@@ -59,10 +65,11 @@ class CaseRegis_model extends CI_Model{
 		return $query->row();
 	}
 
-	public function Get_ClientByCaseWithAdult($caseid,$isadult){
+	public function Get_ClientByCaseWithAdult($caseid,$isclient){
 		$para=array(
 			'caseregisid'=>$caseid,
-			'adults'=>$isadult
+			'isclient'=>$isclient,
+			'isdeleted'=>'0'
 		);
 		$this->db->from('case_client');
 		$this->db->where($para);

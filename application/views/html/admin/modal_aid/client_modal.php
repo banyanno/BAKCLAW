@@ -7,6 +7,7 @@
                                 <!-- Text input-->
                                 <div class="form-group">
                                 <input id="caseregisid" name="caseregisid" type="hidden">
+                                <input id="caseclientid" name="caseclientid" type="hidden">
                                 </div>
                                 <div class="form-group">
                                 <div class="col-sm-12"> 
@@ -41,10 +42,6 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-
-                                                <!--
-                                              <label class="control-label"><input id="adults" name="adults" type="checkbox" value="1"> នីតិជន/អនីតជន</label>
-                                                -->    
                                         <div class="radio">
                                             <label>
                                             <input type="radio" name="adults" id="adult" value="1">
@@ -57,12 +54,25 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <div class="radio">
+                                            <label>
+                                            <input type="radio" name="isclient" id="client" value="1">
+                                            ​​​​កូនក្តី
+                                            </label>
+                                            <label>
+                                            <input type="radio" name="isclient" id="otherclient" value="0">
+                                               ភាគីម្ខាងទៀត/ដើមបណ្តឹងរដ្ឋប្បវេណី
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                       
                                 <div class="form-group">
                                    
                                     <div class="col-sm-12">
                                     <label class="control-label">សំគាល់</label>
-                                    <textarea id="clientnote " class="resizable_textarea form-control" placeholder="..."></textarea>
+                                    <textarea id="clientnote" name="clientnote" class="resizable_textarea form-control" placeholder="..."></textarea>
                                     </div>
                                 </div>
                                 

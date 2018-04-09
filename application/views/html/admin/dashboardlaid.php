@@ -51,13 +51,13 @@
       <div class="row" >
           <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="panel panel-default"> <!-- Begining Panel -->
-                        <div class="panel-heading">បញ្ជីកូនក្តីនិងពាក្យបណ្តឺង</div>
+                        <div class="panel-heading">សំណុំរឿង LAD</div>
                         <div class="panel-body">  	    
                               
                                         <table id="maintableLAID"  class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th><label class="control-label-kh">Action</label></th>
+                                                    <th>#</th>
                                                     <th><label class="control-label-kh">លេខសំណុំរឿង</label></th>
                                                     <th><label class="control-label-kh">ចុះថ្ងៃទី</label></th>
                                                     <th><label class="control-label-kh">ប្រភេទសំណុំរឿង</label></th>
@@ -73,15 +73,13 @@
                           </div>
                     </div><!-- Ending Panel -->
           </div>
-          <!-- Start panel កូនក្តី​ និង  -->
-          <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="row">
-                  <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="panel panel-info"> <!-- Begining Panel -->
+          
+          <div class="row"><!-- Start panel កូនក្តី​ និង  -->
+          <div class="col-xs-6">
+           <div class="panel panel-info"> <!-- Begining Panel -->
                         <div class="panel-heading">កូនក្តី</div>
-                        <div class="panel-body"> 
-                                <div class="x_content"> <!-- start x content -->
-                                        <table id="tableclientadult" class="table table-striped table-bordered">
+                        <div class="panel-body">
+                                        <table id="tableclientadult" class="table table-bordered">
                                           <thead>
                                             <tr>
                                               <th>#</th>
@@ -89,39 +87,39 @@
                                               <th>ភេទ</th>
                                               <th>អាយុ</th>
                                               <td>នីតិជន/អនីតិជន</td>
+                                              <td>សំគាល់</td>
+                                              <td>action</td>
                                             </tr>
                                           </thead>
                                           
                                         </table>
-                    
-                                      </div> <!-- End x content -->
+                                
                           </div>
                     </div><!-- Ending Panel -->
-                </div>
-                </div>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-6">
-                <div class="panel panel-info"> <!-- Begining Panel -->
+            </div>
+          <div class="col-xs-6">
+                    <div class="panel panel-info"> <!-- Begining Panel -->
                         <div class="panel-heading">ភាគីម្ខាងទៀត/ដើមបណ្តឹងរដ្ឋប្បវេណី</div>
-                        <div class="panel-body">  	    
-                                <div class="x_content"> <!-- start x content -->
-                                    <table id="tableclientminor" class="table table-striped table-bordered">
+                        <div class="panel-body">
+                                    <table id="tableclientminor" class="table table-bordered table-striped">
                                       <thead>
                                         <tr>
-                                            ​​​​​​  <th>#</th>
-                                              <th>ឈ្មោះ</th>
-                                              <th>ភេទ</th>
-                                              <th>អាយុ</th>
-                                              <th>នីតិជន/អនីតិជន</th>
+                                            <th>#</th>
+                                            <th>ឈ្មោះ</th>
+                                            <th>ភេទ</th>
+                                            <th>អាយុ</th>
+                                            <th>នីតិជន/អនីតិជន</th>
+                                            <td>សំគាល់</td>
+                                            <td>action</td>
                                         </tr>
                                       </thead>
                                      </table>
-                
-                                  </div> <!-- End x content -->
                           </div>
                     </div><!-- Ending Panel -->
+                    </div>
           </div>
-          <!-- End of panel កូនក្តី -->
+          </div> <!-- End of panel កូនក្តី -->
+         
 
             <div class="x_content"> <!-- Start Tab តំណាក់កាលចូលរឿងក្តី -->
             <div class="" role="tabpanel" data-example-id="togglable-tabs">
