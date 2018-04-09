@@ -32,7 +32,7 @@
                                         <label class="control-label" for="project">ប្រភេទសំណុំរឿង៖</label> 
                                         <select class="form-control" name="typeofcase" id="typeofcase">
                                                 <option value="">...</option>
-                                                <option value="ប្រហ្មទណ្ឌ">ប្រហ្មទណ្ឌ</option>
+                                                <option value="ព្រហ្មទណ្ឌ">ព្រហ្មទណ្ឌ</option>
                                                 <option value="រដ្ឋប្បវេណី">រដ្ឋប្បវេណី</option>
                                                 <option value="ពាណិជ្ជកម្ម">ពាណិជ្ជកម្ម</option>
                                                 <option value="ផ្សេងៗ">ផ្សេងៗ</option>

@@ -17,9 +17,12 @@
     <!-- Top files -->
     <div class="row tile_count">
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-         <span class="count_top"><i class="fa fa-user"></i> រឿងក្តីសរុប</span>
-        <div class="count">25</div>
-        <!--<span class="count_bottom"><i class="green">4% </i> From last Week</span>-->
+         <span class="count_top​​​ red"><i class="fa fa-user"></i> រឿងក្តីសរុប</span>
+        <div class="count green"><?php echo $TotalCase ?></div>
+        <span class="count_bottom">- ព្រហ្មទណ្ឌ:<i class="green"> 4% </i></span><br>
+        <span class="count_bottom">- រដ្ឋប្បវេណី:<i class="green"> 4% </i></span><br>
+        <span class="count_bottom">- ពាណិជ្ជកម្ម:<i class="green"> 4% </i></span><br>
+        <span class="count_bottom">- ផ្សេងៗ:<i class="green"> 4% </i></span>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
         <span class="count_top"><i class="fa fa-clock-o"></i> កូនក្តីសរុប</span>

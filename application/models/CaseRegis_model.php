@@ -5,6 +5,44 @@ class CaseRegis_model extends CI_Model{
 		$this->load->database();
     }
 
+	// ======================== Count Total Dashboard ===============================
+
+	public function TotalCase()
+	{
+		$sql ="SELECT * FROM case_regis";
+		$query=$this->db->query($sql);
+		return $query->num_rows();
+	}
+	// ============== សរុប ព្រហ្មទណ្ឌ =======================
+	public function TotalPenalties(){
+		$sql = "SELECT * FROM case_regis WHERE typeofcase='ព្រហ្មទណ្ឌ'";
+		$query=$this->db->query($sql);
+		return $query->num_rows();
+	}
+
+	// ============== រដ្ឋប្បវេណី ==========
+	public function TotalCivilParties()
+	{
+		$sql = "SELECT * FROM case_regis WHERE typeofcase='រដ្ឋប្បវេណី'";
+		$query=$this->db->query($sql);
+		return $query->num_rows();
+	}
+	// ============= ពាណិជ្ជកម្ម ==========
+	public function TotalBusiness()
+	{
+		$sql = "SELECT * FROM case_regis WHERE typeofcase='ពាណិជ្ជកម្ម'";
+		$query=$this->db->query($sql);
+		return $query->num_rows();
+	}
+	// ============ ផ្សេងៗ =======
+	public function TotalOther()
+	{
+		$sql = "SELECT * FROM case_regis WHERE typeofcase='ផ្សេងៗ'";
+		$query=$this->db->query($sql);
+		return $query->num_rows();
+	}
+	
+
        // Insert para system
 	//============= Start Case Registration ============================
 	

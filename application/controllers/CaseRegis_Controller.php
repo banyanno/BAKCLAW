@@ -18,21 +18,17 @@ class CaseRegis_Controller extends CI_Controller{
 //================= Call dashboard Case Registration ===============================
 public function dashboardlaid()
 	{
-		$this->load->model('Lawyers_model');
-		$this->load->model('Parasys_model');
-		$this->load->model('Council_decision_model');
-		$data['cases'] = $this->Parasys_model->fetchCasePara();
-		$data['courts']= $this->Parasys_model->fetchCourt();
-		$data['issues']= $this->Parasys_model->fetchIssue();
+	
 		$data['page_title'] = $this->lang->line('lawyer_menu').' - '.$this->lang->line('lawyer_menu_profiles');
 		$data['permission'] = $this->permission;
-		$data['lawyers'] = $this->Lawyers_model->get_data();
-		$data['council_decision'] = $this->Council_decision_model->get_data();
+		
+		$totalDashboard['TotalCase']= $this->CaseRegis_model->TotalCase();
+
 		$this->load->view('html/admin/templates/header', $data);
 		$this->load->view('html/admin/templates/sidebar');
 		$this->load->view('html/admin/templates/menu_footer.php');
 		$this->load->view('html/admin/templates/top_navigation.php');
-		$this->load->view('html/admin/dashboardlaid.php');
+		$this->load->view('html/admin/dashboardlaid.php',$totalDashboard);
 		$this->load->view('html/admin/templates/footer');		
 		
 	}
@@ -65,7 +61,7 @@ public function insertNewCaseRegis()
 }
 
 public function Edit_CaseRegist($caseID){
-	//echo $clientid;
+	
 	   $validator = array('success' => false, 'messages' => array());
 	   $data = array();
 	   $data['caseno'] =$this->input->post('caseno');
@@ -189,7 +185,7 @@ public function EditeClientByID($clientID){
 public function DeletedClientByID($clientID){
 	$validator = array('success' => false, 'messages' => array());
 	$data = array();
-	$data['isdeleted '] ='1';
+	$data['isdeleted '] ='1';// set client to delete status.
 	$update = $this->CaseRegis_model->Delete_Client($clientID,$data);
 	
 	if ($update==1){

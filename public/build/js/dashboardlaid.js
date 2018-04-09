@@ -158,7 +158,6 @@ function ShowCaseToEdite(clientid) {
          type: "GET",
          dataType: "JSON",
          success: function (data) {
- 
              $('[name="caseclientid"]').val(data.caseclientid);
              $('[name="caseregisid"]').val(data.caseregisid);
              $('[name="clientname"]').val(data.clientname);
