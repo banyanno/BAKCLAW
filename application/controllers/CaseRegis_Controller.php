@@ -135,7 +135,7 @@ public function Get_CaseByID($id){
 //============================= End module Case registration =====================================
 
 /*
-	Start Module Cliet that related to case registrator =============================
+	============================	Start Module Cliet that related to case registrator =============================
 */
 public function Get_ClientByID($clientid){
 	$clientbyID = $this->CaseRegis_model->Get_ClientBy_ID($clientid);
