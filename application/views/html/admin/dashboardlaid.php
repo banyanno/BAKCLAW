@@ -19,17 +19,17 @@
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
          <span class="count_top​​​ red"><i class="fa fa-user"></i> រឿងក្តីសរុប</span>
         <div class="count green"><?php echo $TotalCase ?></div>
-        <span class="count_bottom">- ព្រហ្មទណ្ឌ:<i class="green"> 4% </i></span><br>
-        <span class="count_bottom">- រដ្ឋប្បវេណី:<i class="green"> 4% </i></span><br>
-        <span class="count_bottom">- ពាណិជ្ជកម្ម:<i class="green"> 4% </i></span><br>
-        <span class="count_bottom">- ផ្សេងៗ:<i class="green"> 4% </i></span>
+        <span class="count_bottom">- ព្រហ្មទណ្ឌ:<i class="green"> <?php echo $TotalPenalties ?> </i></span><br>
+        <span class="count_bottom">- រដ្ឋប្បវេណី:<i class="green"> <?php echo $TotalCivilParties ?> </i></span><br>
+        <span class="count_bottom">- ពាណិជ្ជកម្ម:<i class="green"> <?php echo $TotalBusiness ?> </i></span><br>
+        <span class="count_bottom">- ផ្សេងៗ:<i class="green"> <?php echo $TotalOther ?> </i></span>
     </div>
     <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
         <span class="count_top"><i class="fa fa-clock-o"></i> កូនក្តីសរុប</span>
         <div class="count">123.50</div>
        <!-- <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>-->
       </div>
-      <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">                                
         <span class="count_top​​​ red"><i class="fa fa-user"></i> ចំនួនស្រី</span>
         <div class="count green">2,500</div>
       <!--  <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span> -->
@@ -57,7 +57,7 @@
                         <div class="panel-heading">សំណុំរឿង LAD</div>
                         <div class="panel-body">  	    
                               
-                                        <table id="maintableLAID"  class="table table-striped table-bordered">
+                                        <table id="maintableLAID"  class="table table-striped jambo_table table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
@@ -82,7 +82,7 @@
            <div class="panel panel-info"> <!-- Begining Panel -->
                         <div class="panel-heading">កូនក្តី</div>
                         <div class="panel-body">
-                                        <table id="tableclientadult" class="table table-bordered">
+                                        <table id="tableclientadult" class="table jambo_table table-bordered">
                                           <thead>
                                             <tr>
                                               <th>#</th>
@@ -104,7 +104,7 @@
                     <div class="panel panel-info"> <!-- Begining Panel -->
                         <div class="panel-heading">ភាគីម្ខាងទៀត/ដើមបណ្តឹងរដ្ឋប្បវេណី</div>
                         <div class="panel-body">
-                                    <table id="tableclientminor" class="table table-bordered table-striped">
+                                    <table id="tableclientminor" class="table jambo_table table-bordered table-striped">
                                       <thead>
                                         <tr>
                                             <th>#</th>
@@ -281,6 +281,28 @@
         </div>
     </div>
 </div><!-- End Modal client -->
+
+
+
+<div id="ModalCourt" class="modal fade" tabindex="-1" aria-hidden="true"><!-- Start Modal court by case regis -->
+    <div class="modal-dialog" style="width:30%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-xs-center">កូនក្តី</h4>
+            </div>
+            <div class="modal-body"><!--Start modal body -->
+                <div id="messageclient"></div>
+                    <div class="container-fluid">
+                        <div class="row">
+                        <?php 							
+						    include("application/views/html/admin/modal_aid/court_modal.php");
+						 ?>
+                        </div>
+                    </div>
+           </div> <!-- End modal body -->
+        </div>
+    </div>
+</div><!-- End Modal court by case regis -->
 
 </div> <!-- End main HTML -->
 

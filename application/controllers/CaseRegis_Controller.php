@@ -23,6 +23,11 @@ public function dashboardlaid()
 		$data['permission'] = $this->permission;
 		
 		$totalDashboard['TotalCase']= $this->CaseRegis_model->TotalCase();
+		$totalDashboard['TotalPenalties']=$this->CaseRegis_model->TotalPenalties();
+		$totalDashboard['TotalCivilParties']=$this->CaseRegis_model->TotalCivilParties();
+		$totalDashboard['TotalBusiness']=$this->CaseRegis_model->TotalBusiness();
+		$totalDashboard['TotalOther']=$this->CaseRegis_model->TotalOther();
+
 
 		$this->load->view('html/admin/templates/header', $data);
 		$this->load->view('html/admin/templates/sidebar');
@@ -92,8 +97,6 @@ public function fetchAllCaseRegis(){
 		foreach ($caseRegis as $key => $value) {
 	
 		$viewdetial = '<!-- Single button glyphicons glyphicons-sort-by-alphabet -->
-				<button class="btn btn-warning btn-xs btn-round"  onclick="FetchClientByCase('. $value['caseid'] .')"><i class="glyphicon glyphicon-hand-down"></i></button>
-				<button class="btn btn-danger btn-xs btn-round" onclick="ShowEditeCase('. $value['caseid'] .')" data-toggle="tooltip" data-pacement="botton" data-original-title="កែប្រសំណុំរឿង"><i class="glyphicon glyphicon-edit"></i></button>
 				<div class="btn-group">
 				<button type="button" class="btn btn-success btn-effect-ripple  dropdown-toggle btn-xs btn-round" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">បង្កើត...
 				  <span class="caret"></span>
@@ -101,11 +104,24 @@ public function fetchAllCaseRegis(){
 				<ul class="dropdown-menu">			  	
 				  <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="ShowClientCase('.$value['caseid'].')">បង្កើតកូនក្តី</a></li>	
 				  <li class="divider"></li>			    
-				  <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">បង្កើតភាគីបណ្តឹង</a></li>
+				  <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="ShowCourtRegis('.$value['caseid'].')">ទទួលរឿងក្តីពី តុលាការ</a></li>
 				  <li class="divider"></li>
-				  <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">ទទួលរឿងក្តីពី</a></li>				    
+				  <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">ទទួលរឿងក្តីពី កូនក្តី</a></li>	
+				  <li class="divider"></li>
+				  <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">ទទួលរឿងក្តីពី នគបាល</a></li>    
+				  <li class="divider"></li>
+				  <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">ទទួលរឿងក្តីពី អាវុធហត្ថ</a></li> 
+				  <li class="divider"></li>
+				  <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">ទទួលរឿងក្តីពី អាជ្ញាធរស៊ីវិល</a></li>  
+				  <li class="divider"></li>
+				  <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">ទទួលរឿងក្តីពី</a></li>  
+				  <li class="divider"></li>
+				  <li><a href="#" data-toggle="modal" data-target="#removeStudentModal" onclick="removeStudent('.$value['caseid'].')">ទទួលរឿងក្តីពី</a></li>  
 				</ul>
 			  </div>
+
+			  <button class="btn btn-warning btn-xs btn-round"  onclick="FetchClientByCase('. $value['caseid'] .')"><i class="glyphicon glyphicon-hand-down"></i></button>
+			​​​​​  <button class="btn btn-danger btn-xs btn-round" onclick="ShowEditeCase('. $value['caseid'] .')" data-toggle="tooltip" data-pacement="botton" data-original-title="កែប្រសំណុំរឿង"><i class="glyphicon glyphicon-edit"></i></button>
 				';
 			$result['data'][$key] = array(
 					$x,
@@ -167,6 +183,7 @@ public function EditeClientByID($clientID){
 	$data['clientsex']=$this->input->post('clientsex');
 	$data['clientage']=$this->input->post('clientage');
 	$data['adults']=$this->input->post('adults');
+	$data['isclient']=$this->input->post('isclient');
 	$data['clientnote']=$this->input->post('clientnote');
 	
 	$update = $this->CaseRegis_model->Edit_Client($clientID,$data);

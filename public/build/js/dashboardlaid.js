@@ -341,6 +341,26 @@ var url;
 //============================================= End Module client =============================================
 
 
+/*
+===============================================================================
+    Start create Court by when user select receive case from court.....
+*/
+
+function ShowCourtRegis(caseid){
+    caseID=caseid;
+    save_method = 'add';
+    $('#formCourt')[0].reset(); // reset form on modals
+    $('#ModalCourt').modal('show'); // show bootstrap modal
+    $('.modal-title').text('Add court...'); // Set Title to Bootstrap modal title
+}
+
+
+
+/*
+================================================================================
+    End module create court in case registration.....
+*/
+
 
 
 
