@@ -79,7 +79,7 @@
           
           <div class="row"><!-- Start panel កូនក្តី​ និង  -->
           <div class="col-xs-6">
-           <div class="panel panel-info"> <!-- Begining Panel -->
+                <div class="panel panel-info"> <!-- Begining Panel -->
                         <div class="panel-heading">កូនក្តី</div>
                         <div class="panel-body">
                                         <table id="tableclientadult" class="table jambo_table table-bordered">
@@ -98,7 +98,7 @@
                                         </table>
                                 
                           </div>
-                    </div><!-- Ending Panel -->
+                </div><!-- Ending Panel -->
             </div>
           <div class="col-xs-6">
                     <div class="panel panel-info"> <!-- Begining Panel -->
@@ -147,7 +147,7 @@
                 </li>
             </ul>
             <div id="myTabContent" class="tab-content">
-                <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="court-tab">
+            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="court-tab">
              <div class="col-md-12 col-sm-12 col-xs-12"> <!-- Begining Panel -->
               <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12">
@@ -285,7 +285,7 @@
 
 
 <div id="ModalCourt" class="modal fade" tabindex="-1" aria-hidden="true"><!-- Start Modal court by case regis -->
-    <div class="modal-dialog" style="width:30%;">
+    <div class="modal-dialog" style="width:50%;">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title text-xs-center">កូនក្តី</h4>

@@ -349,6 +349,11 @@ var url;
 function ShowCourtRegis(caseid){
     caseID=caseid;
     save_method = 'add';
+    $("#datecourt").datepicker({
+        dateFormat: 'yy-mm-dd'
+    });
+
+    $("#datepoorinterview").datepicker({dateFormat: 'yy-mm-dd'});
     $('#formCourt')[0].reset(); // reset form on modals
     $('#ModalCourt').modal('show'); // show bootstrap modal
     $('.modal-title').text('Add court...'); // Set Title to Bootstrap modal title
