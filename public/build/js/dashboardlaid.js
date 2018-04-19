@@ -359,7 +359,34 @@ function ShowCourtRegis(caseid){
     $('.modal-title').text('Add court...'); // Set Title to Bootstrap modal title
 }
 
+function addRowToTable(){
+    var table=$("#lawyer_info_table");
+    var count_table_tboby_tr = $("#lawyer_info_table tbody tr").length;
+    var row_id = count_table_tboby_tr + 1;
+    var html ='<tr id="row_' + row_id +'">' +
+                    '<td><input type="text" name="qty[]" id="qty_'+row_id+'" class="form-control"></td>'+
+                    '<td><input type="text" name="rate[]" id="rat_'+row_id+'" class="form-control"></td>'+
+                    '<td><input type="text" name="date[]" id="date_'+row_id+'" class="form-control"></td>'+
+                    '<td><button type="button" class="btn btn-default" onclick="removeRow(\''+row_id+'\')"><i class="fa fa-close"></i></button></td>'+
+                    '</tr>';
+           if(count_table_tboby_tr >= 1){
+              $("#lawyer_info_table tbody tr:last").after(html);
+            }else{
+              $("#lawyer_info_table tbody").html(html);
+           }
+    /*$.ajax({
+        success:function(){
+            
+        }
+    });*/
+    return false;
+}
 
+function removeRow(tr_id)
+{
+  $("#lawyer_info_table tbody tr#row_"+tr_id).remove();
+  subAmount();
+}
 
 /*
 ================================================================================

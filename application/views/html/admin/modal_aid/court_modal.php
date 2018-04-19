@@ -13,7 +13,7 @@
                                 <div class="form-group">
                                 <div class="col-sm-12"> 
                                         <label for="cientname" class="control-label" >ទទួលពីតុលាការ</label>
-                                        <select class="form-control" name="courtname" id="courtname">
+                                        <select class="form-control select_group courtname" name="courtname" id="courtname">
                                             <option value="">...</option>
                                             <option value="ភ្នំពេញ">ភ្នំពេញ</option>
                                             <option value="កណ្តាល">កណ្តាល</option>
@@ -121,26 +121,19 @@
                                         <div id="myTabContent" class="tab-content"> <!-- start tab body -->
                                        
                                         <div role="tabpanel" class="tab-pane fade active in" id="tab_requestlawyer" aria-labelledby="tab_requestlawyer">
-                  <form class="form-inline">
-                  <div class="col-sm-4"> 
-                  <div class="form-group">
-                    <label for="ex3">ឈ្មោះមេធាវី</label>
-                    <input type="text" id="ex3" class="form-control" placeholder=" ">
-                  </div>
-                  </div>
-                  <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="ex4">លិខិតចាត់តាំង,លេខ</label>
-                    <input type="email" id="ex4" class="form-control" placeholder=" ">
-                  </div>
-                  </div>
-                  <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="ex4">ចុះថ្ងៃទី</label>
-                    <input type="email" id="ex4" class="form-control" placeholder=" ">
-                  </div>
-                  </div>
-                </form>
+                                            <table class="table table-bordered" id="lawyer_info_table">
+                                            <thead>
+                                                    <tr>
+                                                        <th style="width:50%">ឈ្មោះមេធាវី</th>
+                                                        <th style="width:10%">លិខិតចាត់តាំងលេខ</th>
+                                                        <th style="width:20%">ថ្ងៃទី</th>
+                                                        <th style="width:3%"><button type="button" id="add_row" class="btn btn-default" onclick="addRowToTable()"><i class="fa fa-plus"></i></button></th>
+                                                    </tr>
+                                                    <tbody>
+                                                    
+                                                    </tbody>
+                                            </thead>
+                                            </table>          
                                         </div>
                                         <div role="tabpanel" class="tab-pane fade" id="tab_moneylawyer" aria-labelledby="tab_moneylawyer">
                                         <p>Client</p>
