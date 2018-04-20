@@ -13,8 +13,8 @@
                                 <div class="form-group">
                                 <div class="col-sm-12"> 
                                         <label for="cientname" class="control-label" >ទទួលពីតុលាការ</label>
-                                        <select class="form-control select_group courtname" name="courtname" id="courtname">
-                                            <option value="">...</option>
+                                        <select class="form-control select_group courtname" name="courtname" id="courtname" style="width:100%;" maxlength="2">
+                                            <option value="">ជ្រើសរើសតុលារ...</option>
                                             <option value="ភ្នំពេញ">ភ្នំពេញ</option>
                                             <option value="កណ្តាល">កណ្តាល</option>
                                             <option value="កំពង់ស្ពឺ">កំពង់ស្ពឺ</option>

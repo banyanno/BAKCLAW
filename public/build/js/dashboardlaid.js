@@ -352,7 +352,8 @@ function ShowCourtRegis(caseid){
     $("#datecourt").datepicker({
         dateFormat: 'yy-mm-dd'
     });
-
+    $(".select_group").select2();
+    $(".courtname").select2();
     $("#datepoorinterview").datepicker({dateFormat: 'yy-mm-dd'});
     $('#formCourt')[0].reset(); // reset form on modals
     $('#ModalCourt').modal('show'); // show bootstrap modal

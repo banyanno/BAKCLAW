@@ -284,7 +284,7 @@
 
 
 
-<div id="ModalCourt" class="modal fade" tabindex="-1" aria-hidden="true"><!-- Start Modal court by case regis -->
+<div id="ModalCourt" class="modal fade" ><!-- Start Modal court by case regis -->
     <div class="modal-dialog" style="width:50%;">
         <div class="modal-content">
             <div class="modal-header">

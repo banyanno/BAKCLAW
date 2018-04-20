@@ -40,11 +40,15 @@
     <script src="<?php echo base_url();?>public/vendors/pdfmake/build/vfs_fonts.js"></script>
 	  <script src="<?php echo base_url();?>public/build/js/formwizard.js"></script>
     <script src="<?php echo base_url();?>public/build/js/operations.js"></script>
+    
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url();?>public/vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
     <script src="<?php echo base_url();?>public/build/js/custom.min.js"></script>
+    <!-- Select2 -->
+   <script src="<?php echo base_url('public/vendors/select2/dist/js/select2.full.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo base_url();?>public/build/js/clients.js"></script>
     <script type="text/javascript" src="<?php echo base_url();?>public/build/js/dashboardlaid.js"></script>
+
   
   </body>
 </html>
