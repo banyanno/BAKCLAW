@@ -8,7 +8,7 @@ private $permission = array();
 	$this->load->helper('url'); // Load URL Helper for base_url() 
 	$this->load->helper('html'); // Load HTML Helper for img()
 	$this->load->model('Ligalaid_model');
-	$this->load->model('Parasys_model');
+	$this->load->model('Lawyers_model');
 	$this->load->library('form_validation');
 	$this->load->helper('security');
 	if(!$this->session->userdata('logged_in'))
@@ -66,18 +66,16 @@ public function dashboardlaid()
 		$data['issues']= $this->Parasys_model->fetchIssue();
 		$data['page_title'] = $this->lang->line('lawyer_menu').' - '.$this->lang->line('lawyer_menu_profiles');
 		$data['permission'] = $this->permission;
-		$data['lawyers'] = $this->Lawyers_model->get_data();
+		$data['lawyers'] = $this->Lawyers_model->getLawyerAsArray();
 		$data['council_decision'] = $this->Council_decision_model->get_data();
 		$this->load->view('html/admin/templates/header', $data);
 		$this->load->view('html/admin/templates/sidebar');
 		$this->load->view('html/admin/templates/menu_footer.php');
 		$this->load->view('html/admin/templates/top_navigation.php');
-		$this->load->view('html/admin/dashboardlaid.php');
+		$this->load->view('html/admin/dashboardlaid.php',$data);
 		$this->load->view('html/admin/templates/footer');		
 		
 	}
-
-
 }
 	
 

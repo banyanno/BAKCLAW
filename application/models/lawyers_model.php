@@ -44,7 +44,12 @@ class Lawyers_model extends CI_Model {
 		 {
 			 return $query->result();
 		 }
-	
+	}
+	public function getLawyerAsArray()
+	{
+		$sql ="SELECT * FROM lawyers";
+		$query = $this->db->query($sql);
+		return $query->result_array();
 	}
 	
 	public function get_lawyer_code($id)

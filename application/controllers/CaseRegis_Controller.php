@@ -8,6 +8,7 @@ class CaseRegis_Controller extends CI_Controller{
 	$this->load->helper('url'); // Load URL Helper for base_url() 
 	$this->load->helper('html'); // Load HTML Helper for img()
 	$this->load->model('CaseRegis_model');
+	$this->load->model('Lawyers_model');
 	$this->load->library('form_validation');
 	$this->load->helper('security');
 	if(!$this->session->userdata('logged_in'))
@@ -19,6 +20,7 @@ class CaseRegis_Controller extends CI_Controller{
 public function dashboardlaid()
 	{
 	
+		$this->load->model('Lawyers_model');
 		$data['page_title'] = $this->lang->line('lawyer_menu').' - '.$this->lang->line('lawyer_menu_profiles');
 		$data['permission'] = $this->permission;
 		
@@ -28,7 +30,7 @@ public function dashboardlaid()
 		$totalDashboard['TotalBusiness']=$this->CaseRegis_model->TotalBusiness();
 		$totalDashboard['TotalOther']=$this->CaseRegis_model->TotalOther();
 
-
+		$totalDashboard['lawyers'] = $this->Lawyers_model->getLawyerAsArray();
 		$this->load->view('html/admin/templates/header', $data);
 		$this->load->view('html/admin/templates/sidebar');
 		$this->load->view('html/admin/templates/menu_footer.php');
@@ -89,6 +91,7 @@ public function Edit_CaseRegist($caseID){
    
 	   echo json_encode($validator);
 }
+
 
 public function fetchAllCaseRegis(){
 	$caseRegis = $this->CaseRegis_model->fetchAllCassRegis();
@@ -285,6 +288,14 @@ function GetClientByCaseAndminor($caseid){
 
 	echo json_encode($result);
 }
+// ================================= Start Module Court registration ============================================
+
+public function getLawyerInfo()
+{
+	$lawyers = $this->Lawyers_model->getLawyerAsArray();
+	echo json_encode($lawyers);
+}
+
 
 }
 ?>

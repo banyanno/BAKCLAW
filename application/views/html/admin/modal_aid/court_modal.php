@@ -1,5 +1,5 @@
 
-<form  class="form-horizontal" id="formCourt"   >
+<form  class="form-horizontal" id="formCourt">
                             <fieldset>
                         
                                 <!-- Form Name -->
@@ -121,7 +121,7 @@
                                         <div id="myTabContent" class="tab-content"> <!-- start tab body -->
                                        
                                         <div role="tabpanel" class="tab-pane fade active in" id="tab_requestlawyer" aria-labelledby="tab_requestlawyer">
-                                            <table class="table table-bordered" id="lawyer_info_table">
+                                            <table class="table table-bordered" id="lawyer_info_table"> <!-- Start create table list lawyer -->
                                             <thead>
                                                     <tr>
                                                         <th style="width:50%">ឈ្មោះមេធាវី</th>
@@ -130,10 +130,26 @@
                                                         <th style="width:3%"><button type="button" id="add_row" class="btn btn-default" onclick="addRowToTable()"><i class="fa fa-plus"></i></button></th>
                                                     </tr>
                                                     <tbody>
-                                                    
+                                                            <tr id="row_1">
+                                                                <td>
+                                                                <select class="form-control select_lawyer lawyer" data-row-id="row_1" id="lawyer_1" name="lawyer[]" style="width:100%;" require>
+                                                                <option value=""></option>
+                                                                <?php foreach ($lawyers as $k=>$v):  ?>
+                                                                    <option value="<?php echo $v['id'] ?>"><?php echo $v['lawyer_name_kh'] ?></option>
+                                                                <?php endforeach ?>
+                                                                </select>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name="aprovelawyer[]" id="aprovelawyer_1" class="form-control" require>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" name="aprovedate[]" id="aprovedate_1" class="form-control" require>
+                                                                </td>
+                                                                <td><button type="button" class="btn btn-default" onclick="removeRow('1')"><i class="fa fa-close"></i></button></td>
+                                                            </tr>
                                                     </tbody>
                                             </thead>
-                                            </table>          
+                                            </table>      <!-- End create table list lawyer -->    
                                         </div>
                                         <div role="tabpanel" class="tab-pane fade" id="tab_moneylawyer" aria-labelledby="tab_moneylawyer">
                                         <p>Client</p>
