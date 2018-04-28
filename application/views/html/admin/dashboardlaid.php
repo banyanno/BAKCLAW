@@ -127,7 +127,7 @@
             <div class="x_content"> <!-- Start Tab តំណាក់កាលចូលរឿងក្តី -->
             <div class="" role="tabpanel" data-example-id="togglable-tabs">
             <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#tab_content1" id="court-tab" role="tab" data-toggle="tab" aria-expanded="true">ទទួលពី តុលាការ</a>
+                <li role="presentation" class="active"><a href="#tab_receivebylawyer" id="court-tab" role="tab" data-toggle="tab" aria-expanded="true">ទទួលពី តុលាការ</a>
                 </li>
                 <li role="presentation" class=""><a href="#tab_content2" role="tab" id="client-tab" data-toggle="tab" aria-expanded="false">ទទួលពី កូនក្តី</a>
                 </li>
@@ -147,69 +147,39 @@
                 </li>
             </ul>
             <div id="myTabContent" class="tab-content">
-            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="court-tab">
-             <div class="col-md-12 col-sm-12 col-xs-12"> <!-- Begining Panel -->
-              <div class="row">
-                  <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">តុលាការ</div>
-                        <div class="panel-body"> 
-                                <div class="x_content"> <!-- start x content -->
-                                        <table class="table table-bordered">
-                                          <thead>
-                                            <tr>
-                                              <th>តុលាការ</th>
-                                              <th>លិខិតស្នើសុំមេធាវី,លេខ</th>
-                                              <th>ចុះថ្ងៃទី</th>
-                                              <th align="center" valign="middle">អត្តសញ្ញាណជនក្រីក្រ</th>
-                                              <th>ឈ្មោះអ្នកសម្ភាសនី</th>
-                                              <th>ថ្ងៃសម្ភាស</th>
-                                              <th>អាចទទួលបាន</th>
-                                              <th>Action</th>
-                                            </tr>
-                                          </thead>
-                                          <tbody>
-                                            <tr>
-                                              <th scope="row">ភ្នំពេញ</th>
-                                              <td>Mark</td>
-                                              <td>2018-02-5</td>
-                                              <td align="center" valign="middle"><input type="checkbox"></td>
-                                              <td>ban yanno</td>
-                                              <td>2018-03-09</td>
-                                              <td><input type="checkbox"></td>
-                                              <td>Edit - Delete- View File Upload</td>
-                                            </tr>
-                                            <tr>
-                                            <th scope="row">កណ្តាល</th>
-                                              <td>Mark</td>
-                                              <td>2018-02-5</td>
-                                              <td align="center" valign="middle"><input type="checkbox"></td>
-                                              <td>Koy Ponleu</td>
-                                              <td>2018-03-09</td>
-                                              <td><input type="checkbox"></td>
-                                              <td>Edit - Delete- View File Upload</td>
-                                            </tr>
-                                            <tr>
-                                            <th scope="row">កំពង់ស្ពឺ</th>
-                                              <td>Mark</td>
-                                              <td>2018-02-5</td>
-                                              <td align="center" valign="middle"><input type="checkbox"></td>
-                                              <td>Seng Vanna</td>
-                                              <td>2018-03-09</td>
-                                              <td><input type="checkbox"></td>
-                                              <td>Edit - Delete- View File Upload</td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                    
-                                      </div> <!-- End x content -->
-                          </div>
-                    </div><!-- Ending Panel -->
-                </div>
-                </div>
-                </div>
+               <div role="tabpanel" class="tab-pane fade active in" id="tab_receivebylawyer" aria-labelledby="court-tab"> <!-- Start Body tab lawyer-->
+                <div class="col-sm-6"> <!-- Start  Panel lawyer -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">តុលាការ</div>
+                                <div class="panel-body"> 
+                                        <div class="x_content"> <!-- start x content -->
+                                                
+                            
+                                        </div> <!-- End x content -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div><!-- End  Panel lawyer -->
 
-                </div>
+                <div class="col-sm-6"> <!-- Start  Panel ប្រាក់ឌបត្ថម្ភមេធាវី -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">ប្រាក់ឌបត្ថម្ភមេធាវី និង លិខិតបេសកកម្ម</div>
+                                <div class="panel-body"> 
+                                        <div class="x_content"> <!-- start x content -->
+                                                
+                            
+                                        </div> <!-- End x content -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div><!-- End  Panel  ប្រាក់ឌបត្ថម្ភមេធាវី  -->  
+                </div> <!-- End Body tab lawyer-->
                 <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="client-tab">
                 <p>Client</p>
                 </div>
@@ -228,12 +198,6 @@
                 <div role="tabpanel" class="tab-pane fade" id="tab_content7" aria-labelledby="other-tab">
                 <p>other-tab</p>
                 </div>
-           
-           
-           
-           
-           
-           
             </div>
             </div>
 

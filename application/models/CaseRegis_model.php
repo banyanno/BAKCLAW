@@ -116,5 +116,23 @@ class CaseRegis_model extends CI_Model{
 	}
 
 	//============= End create module client adult or minor ==========
+
+	//============= Start create module case receive from court =======
+	/*
+
+	*/
+	public function CreateCaseByCourt($court,$layourlist){
+		$status = $this->db->insert('case_court',$court);
+		$court_regesid = $this->db->insert_id();
+		$count_lawyer= count($layourlist);
+		
+
+		return ($status===true ? true : false);
+	}
+
+	
+
+
+	//============= End create module case receive from court =======
 }
 ?>

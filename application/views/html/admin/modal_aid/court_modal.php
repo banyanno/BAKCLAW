@@ -8,13 +8,12 @@
                                 <!-- Text input-->
                                 <div class="form-group">
                                 <input id="caseregisid" name="caseregisid" type="hidden">
-                                <input id="caseclientid" name="caseclientid" type="hidden">
                                 </div>
                                 <div class="form-group">
                                 <div class="col-sm-12"> 
                                         <label for="cientname" class="control-label" >ទទួលពីតុលាការ</label>
-                                        <select class="form-control select_group courtname" name="courtname" id="courtname" style="width:100%;" maxlength="2">
-                                            <option value="">ជ្រើសរើសតុលារ...</option>
+                                        <select class="form-control select_group courtname" name="courtname" id="courtname" style="width:100%;" selectedIndex="-1" > 
+                                            <option value=""></option>
                                             <option value="ភ្នំពេញ">ភ្នំពេញ</option>
                                             <option value="កណ្តាល">កណ្តាល</option>
                                             <option value="កំពង់ស្ពឺ">កំពង់ស្ពឺ</option>
@@ -47,12 +46,12 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-6"> 
-                                            <label for="clientage" class="control-label" >លិខិតស្នើសុំមេធាវី,លេខ៖</label>
-                                            <input type="text"  class="form-control" id="clientage" name="clientage"  placeholder="...">
+                                            <label for="letter_req_no" class="control-label" >លិខិតស្នើសុំមេធាវី,លេខ៖</label>
+                                            <input type="text"  class="form-control" id="letter_req_no" name="letter_req_no"  placeholder="...">
                                     </div>
                                     <div class="col-sm-6">
-                                        <label for="datecourt" class="control-label" >ចុះថ្ងៃទី៖</label>
-                                        <input type="text" readonly="readonly" class="form-control" id="datecourt" name="datecourt" placeholder="yyyy-mm-dd"> 
+                                        <label for="letter_req_date" class="control-label" >ចុះថ្ងៃទី៖</label>
+                                        <input type="text" readonly="readonly" class="form-control" id="letter_req_date" name="letter_req_date" placeholder="yyyy-mm-dd"> 
                                             <!--
                                                 <?php
                                                     foreach($lawyers as $lawyer){
@@ -62,7 +61,6 @@
                                                 ?>
                                                 -->   
                                                     <!-- Code Php here -->
-                                       
                                     </div>
                                     
                                 </div>
@@ -77,22 +75,22 @@
                                                </ul>
                                                </div>
                                                 <div   class= "x_content"> <!-- start panel body poor-->
-                                                <div class="radio">
+                                                <div class="radio" >
                                                     <label>
-                                                    <input type="radio" name="adults" id="adult" value="1">
+                                                    <input type="radio" name="is_poor" id="ispoor1" value="1">
                                                         មានសំគាល់ជនក្រីក្រ
                                                     </label>
                                                     <label>
-                                                    <input type="radio" name="adults" id="minner" value="0">
+                                                    <input type="radio" name="is_poor" id="ispoor2" value="0">
                                                         គ្មានប័ណសំគាល់ជនក្រីក្រ
                                                     </label>
                                                 </div>
                                                 <br>
                                                 <lable class="control-label"><space>ថ្ងៃសម្ភាសន៏</space></label>
-                                                <input type="text" readonly="readonly" class="form-control" id="datepoorinterview" name="datepoorinterview" placeholder="yyyy-mm-dd"> 
+                                                <input type="text" readonly="readonly" class="form-control" id="interview_date" name="interview_date" placeholder="yyyy-mm-dd"> 
                                                
                                                 <label  class="control-label"><space>សំគាល់សម្ភាសជនក្រីក្រ</space></label>
-                                                <textarea id="clientnote" name="clientnote" class="resizable_textarea form-control" placeholder="..."></textarea>
+                                                <textarea id="interview_note" name="interview_note" class="resizable_textarea form-control" placeholder="..."></textarea>
                                                
                                                 </div><!--End panel body poor-->    
                                     </div>  <!-- End panel poor in court -->
@@ -101,26 +99,26 @@
                                     <div class="col-sm-12">
                                         <div class="radio">
                                             <label>
-                                            <input type="radio" name="isclient" id="client" value="1">
+                                            <input type="radio" name="isaprove" id="isaprove1" value="1">
                                             ​​​​អាចទទួលពាក្យបណ្តឹង
                                             </label>
                                             <label>
-                                            <input type="radio" name="isclient" id="otherclient" value="0">
+                                            <input type="radio" name="isaprove" id="otherclient2" value="0">
                                             ​​​​មិនអាចទទួលពាក្យបណ្តឹង
                                             </label>
                                         </div>
                                     </div>
                                 </div>                       
                                <div class="form-group"> <!--start group-->
-                               
-                                        <div class="" role="tabpanel" data-example-id="togglable-tabs"><!--Start main tab in court-->
+                                    <div class="" role="tabpanel" data-example-id="togglable-tabs"><!--Start main tab in court-->
                                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist"><!-- start nav tab bar -->
                                             <li role="presentation" class="active"><a href="#tab_requestlawyer" id="requestlawyer-tab1" role="tab" data-toggle="tab" aria-expanded="true">ចាត់តាំងមេធាវី</a></li>
                                             <li role="presentation" class=""><a href="#tab_moneylawyer" id="money-tab" role="tab" data-toggle="tab" aria-expanded="false">ប្រាក់ឌបត្តម្ហមេធាវី</a></li>
+                                            <li role="presentation" class=""><a href="#tab_fileuploadlawyer" id="money-tab" role="tab" data-toggle="tab" aria-expanded="false">Files Upload</a></li>
                                         </ul>  <!-- End nav tab bar -->
                                         <div id="myTabContent" class="tab-content"> <!-- start tab body -->
                                        
-                                        <div role="tabpanel" class="tab-pane fade active in" id="tab_requestlawyer" aria-labelledby="tab_requestlawyer">
+                                        <div role="tabpanel" class="tab-pane fade active in" id="tab_requestlawyer" aria-labelledby="tab_requestlawyer"><!--Start Tabbody ចាត់តាំងមេធាវី-->
                                             <table class="table table-bordered" id="lawyer_info_table"> <!-- Start create table list lawyer -->
                                             <thead>
                                                     <tr>
@@ -132,7 +130,7 @@
                                                     <tbody>
                                                             <tr id="row_1">
                                                                 <td>
-                                                                <select class="form-control select_lawyer lawyer" data-row-id="row_1" id="lawyer_1" name="lawyer[]" style="width:100%;" require>
+                                                                <select class="form-control select_lawyer lawyer" data-row-id="row_1" id="lawyer_1" name="lawyer_name[]" style="width:100%;" require>
                                                                 <option value=""></option>
                                                                 <?php foreach ($lawyers as $k=>$v):  ?>
                                                                     <option value="<?php echo $v['id'] ?>"><?php echo $v['lawyer_name_kh'] ?></option>
@@ -140,27 +138,73 @@
                                                                 </select>
                                                                 </td>
                                                                 <td>
-                                                                    <input type="text" name="aprovelawyer[]" id="aprovelawyer_1" class="form-control" require>
+                                                                    <input type="text" name="aprove_appointed_no[]" id="aprovelawyer_1" class="form-control" require>
                                                                 </td>
                                                                 <td>
-                                                                    <input type="text" name="aprovedate[]" id="aprovedate_1" class="form-control" require>
+                                                                    <input type="text" name="aprove_appointed_date[]" id="aprovedate_1" class="form-control" require>
                                                                 </td>
                                                                 <td><button type="button" class="btn btn-default" onclick="removeRow('1')"><i class="fa fa-close"></i></button></td>
                                                             </tr>
                                                     </tbody>
                                             </thead>
-                                            </table>      <!-- End create table list lawyer -->    
+                                            </table><!-- End create table list lawyer -->    
+                                        </div> <!--End Tabbody ចាត់តាំងមេធាវី-->
+                                        <div role="tabpanel" class="tab-pane fade" id="tab_moneylawyer" aria-labelledby="tab_moneylawyer"><!--start tab body ប្រាក់ឌបត្តម្ហមេធាវី-->
+                                        <div class="form-group">
+                                                <div class="col-sm-3">
+                                                    <label for="aprove_money_no" class="control-label" >លិខិតអនុម័ត,លេខ៖</label>
+                                                    <input type="text" class="form-control" id="aprove_money_no" name="aprove_money_no" > 
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <label for="aprove_money_date" class="control-label" >ថ្ងៃអនុម័ត៖</label>
+                                                    <input type="text" class="form-control" id="aprove_money_date" name="aprove_money_date" readonly="readonly"> 
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label for="aprove_by_who" class="control-label" >អ្នកអនុម័ត៖</label>
+                                                    <input type="text" class="form-control" id="aprove_by_who" name="aprove_by_who"> 
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <label for="aprove_money_total" class="control-label" >ចំនួនទឹកប្រាក់៖</label>
+                                                    <input type="text" class="form-control" id="aprove_money_total" name="aprove_money_total"> 
+                                                </div>
+                                                <div class="col-sm-2">
+                                                 <label  for="aporve_ispaid" class="control-label">ចំណាយរួច 
+                                                     <br>
+                                                    <input type="hidden" name="aporve_ispaid" id="aporve_ispaid1" value="0"/>
+                                                    <input type="checkbox" name="aporve_ispaid" id="aporve_ispaid2" value="1" >
+                                                    </label>
+                                                </div>
                                         </div>
-                                        <div role="tabpanel" class="tab-pane fade" id="tab_moneylawyer" aria-labelledby="tab_moneylawyer">
-                                        <p>Client</p>
+                                        <div class="form-group">
+                                                <div class="col-sm-6">
+                                                    <label for="appove_mission_no" class="control-label" >លិខិតបេសកកម្ម,លេខ៖</label>
+                                                    <input type="text" class="form-control" id="appove_mission_no" name="appove_mission_no" > 
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label for="aprove_mission_date" class="control-label" >ថ្ងៃបេសកកម្ម៖</label>
+                                                    <input type="text" class="form-control" id="aprove_mission_date" name="aprove_mission_date" readonly="readonly"> 
+                                                </div>
                                         </div>
-                                        </div> <!-- End tab body -->
-                                                    
-                                      
+                                        <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <label class="control-label" >សំគាល់៖</label>
+                                                    <textarea id="case_request_note" name="case_request_note" class="resizable_textarea form-control" placeholder="..."></textarea>
+                                                </div>
+                                                
+                                        </div>
+                                        </div> <!--End tab body ប្រាក់ឌបត្តម្ហមេធាវី-->
+                                        <div role="tabpanel" class="tab-pane fade" id="tab_fileuploadlawyer" aria-labelledby="tab_moneylawyer"><!--start tab body files upload-->
+                                        <div class="x_content">
+                                        <div class="col-sm-12">
+                                            <!-- Body post to upload file -->
+                                         </div>
+                                         </div>
+                                        </div> <!--End tab body files upload-->
 
-                                        </div> <!-- main tab in court-->
-                                      
-                                        </div> <!--end group-->
+
+                                    </div> <!-- End tab body -->
+                                     </div> <!-- main tab in court-->
+                                    </div> <!--end group-->
                             </fieldset>
                         
                             <div class="modal-footer">

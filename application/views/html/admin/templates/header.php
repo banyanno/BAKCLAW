@@ -23,10 +23,13 @@
     <link href="<?php echo base_url();?>public/vendors/jquery/jquery-ui/jquery-ui.css" rel="stylesheet">
     <!-- Custom Theme Style -->	 
     <link href="<?php echo base_url();?>public/build/css/custom.css" rel="stylesheet">
-	<link href="<?php echo base_url();?>public/build/css/formwizard.css" rel="stylesheet"> 
+	  <link href="<?php echo base_url();?>public/build/css/formwizard.css" rel="stylesheet"> 
   
-  <!-- Select2 -->
-  <link rel="stylesheet" href="<?php echo base_url('public/vendors/select2/dist/css/select2.min.css') ?>">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="<?php echo base_url('public/vendors/select2/dist/css/select2.min.css') ?>">
+
+        <!-- Dropzone.js  upload-->
+    <link rel="stylesheet" href="<?php echo base_url('public/vendors/dropzone/dist/min/dropzone.min.css')?> ">
    
   </head>
 

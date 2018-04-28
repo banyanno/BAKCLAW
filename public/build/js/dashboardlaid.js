@@ -348,16 +348,31 @@ var url;
 
 function ShowCourtRegis(caseid){
     caseID=caseid;
-    save_method = 'add';
-    $("#datecourt").datepicker({
+    save_method = 'add'; // set option add in case save new case request by court.
+    // set update date and time picker
+    $("#letter_req_date").datepicker({
         dateFormat: 'yy-mm-dd'
     });
-    
+
+    $("#aprove_money_date").datepicker({
+        dateFormat: 'yy-mm-dd'
+    });
+    $("#aprove_mission_date").datepicker({
+        dateFormat: 'yy-mm-dd'
+    });
+    $("#interview_date").datepicker(
+        {dateFormat: 'yy-mm-dd'
+    });
+    // end set up date and time picker
+
+    // Set auto complete in select option
     $(".select_group").select2();
     $(".select_lawyer").select2();
     $(".courtname").select2();
-    removeAllTableLawyer();
-    $("#datepoorinterview").datepicker({dateFormat: 'yy-mm-dd'});
+    // End set auto complete in select option
+    
+    removeAllTableLawyer(); // Remove list of lawyer befor start modal.
+   
     $('#formCourt')[0].reset(); // reset form on modals
    
     $('#ModalCourt').modal('show'); // show bootstrap modal
@@ -388,7 +403,7 @@ function addRowToTable(){
         success:function(response){
             var html ='<tr id="row_'+ row_id +'">' +
             '<td>' +
-            '<select class="form-control select_lawyer lawyer" data-row-id="'+ row_id +'" id="lawyer_'+ row_id +'" name="lawyer[]" style="width:100%;" require>' +
+            '<select class="form-control select_lawyer lawyer" data-row-id="'+ row_id +'" id="lawyer_'+ row_id +'" name="lawyer_name[]" style="width:100%;" require>' +
             '<option value=""></option>';
              $.each(response, function(index, value) {
                
@@ -396,8 +411,8 @@ function addRowToTable(){
             });
             html += '</select>'+
             '</td>' +
-            '<td> <input type="text" name="aprovelawyer[]" id="aprovelawyer_'+ row_id +'" class="form-control" require></td>'+
-            '<td><input type="text" name="aprovedate[]" id="aprovedate_'+row_id  +'" class="form-control" readonly="readonly" require></td>' +
+            '<td> <input type="text" name="aprove_appointed_no[]" id="aprovelawyer_'+ row_id +'" class="form-control" require></td>'+
+            '<td><input type="text" name="aprove_appointed_date[]" id="aprovedate_'+row_id  +'" class="form-control" readonly="readonly" require></td>' +
             '<td><button type="button" class="btn btn-default" onclick="removeRow(\''+ row_id +'\')"><i class="fa fa-close"></i></button></td>'+
             '</tr>';
             if(count_table_tboby_tr >= 1){
