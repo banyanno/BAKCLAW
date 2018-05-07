@@ -10,7 +10,7 @@
                                 <input id="caseregisid" name="caseregisid" type="hidden">
                                 </div>
                                 <div class="form-group">
-                                <div class="col-sm-12"> 
+                                <div class="col-sm-4"> 
                                         <label for="cientname" class="control-label" >ទទួលពីតុលាការ</label>
                                         <select class="form-control select_group courtname" name="courtname" id="courtname" style="width:100%;" selectedIndex="-1" > 
                                             <option value=""></option>
@@ -42,14 +42,11 @@
                                             <option value="កំពូល">កំពូល</option>
                                         </select>
                                 </div>
-                                
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-6"> 
+                                    <div class="col-sm-4"> 
                                             <label for="letter_req_no" class="control-label" >លិខិតស្នើសុំមេធាវី,លេខ៖</label>
                                             <input type="text"  class="form-control" id="letter_req_no" name="letter_req_no"  placeholder="...">
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <label for="letter_req_date" class="control-label" >ចុះថ្ងៃទី៖</label>
                                         <input type="text" readonly="readonly" class="form-control" id="letter_req_date" name="letter_req_date" placeholder="yyyy-mm-dd"> 
                                             <!--
@@ -62,7 +59,6 @@
                                                 -->   
                                                     <!-- Code Php here -->
                                     </div>
-                                    
                                 </div>
                                 <div class="form-group">
                                         <div class="x_panel" > <!-- start panel poor in court -->
@@ -100,11 +96,11 @@
                                         <div class="radio">
                                             <label>
                                             <input type="radio" name="isaprove" id="isaprove1" value="1">
-                                            ​​​​អាចទទួលពាក្យបណ្តឹង
+                                            អាចទទួលពាក្យបណ្តឹង
                                             </label>
                                             <label>
                                             <input type="radio" name="isaprove" id="otherclient2" value="0">
-                                            ​​​​មិនអាចទទួលពាក្យបណ្តឹង
+                                            មិនអាចទទួលពាក្យបណ្តឹង
                                             </label>
                                         </div>
                                     </div>
@@ -125,7 +121,7 @@
                                                         <th style="width:50%">ឈ្មោះមេធាវី</th>
                                                         <th style="width:10%">លិខិតចាត់តាំងលេខ</th>
                                                         <th style="width:20%">ថ្ងៃទី</th>
-                                                        <th style="width:3%"><button type="button" id="add_row" class="btn btn-default" onclick="addRowToTable()"><i class="fa fa-plus"></i></button></th>
+                                                        <th style="width:3%"><button type="button" id="add_row" class="btn btn-default" onclick="addRowToTableLawyer()"><i class="fa fa-plus"></i></button></th>
                                                     </tr>
                                                     <tbody>
                                                             <tr id="row_1">
@@ -197,6 +193,26 @@
                                         <div class="x_content">
                                         <div class="col-sm-12">
                                             <!-- Body post to upload file -->
+											<table class="table table-bordered" id="file_info_table"> <!-- Start create table list lawyer -->
+                                            <thead>
+                                                    <tr>
+                                                        <th style="width:50%">ឈ្មោះឯកសារ</th>
+                                                        <th style="width:20%">Browse...File</th>
+                                                        <th style="width:3%"><button type="button" id="add_row_file" class="btn btn-default" onclick="addRowToTableFile()"><i class="fa fa-plus"></i></button></th>
+                                                    </tr>
+                                                    <tbody>
+                                                            <tr id="row_1">
+                                                                <td>
+                                                               	<input type="text" name="file_name[]" id="filename_1" class="form-control" required/>
+                                                                </td>
+                                                                <td>
+                                                                   <input type="file" name="files_browse[]" id="files_1"/>
+                                                                </td>
+                                                                <td><button type="button" class="btn btn-default" onclick="removeRowFile('1')"><i class="fa fa-close"></i></button></td>
+                                                            </tr>
+                                                    </tbody>
+                                            </thead>
+                                            </table><!-- End create table list lawyer --> 
                                          </div>
                                          </div>
                                         </div> <!--End tab body files upload-->
@@ -209,6 +225,6 @@
                         
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">  បិត  </button>
-                                <button type="button" id="btnSave"  onclick="SaveOrUpdateClient()"  class="btn btn-info"> រក្សាទុក </button>
+                                <button type="button" id="btnSave"  onclick="CreateCaseRequestByCourt()"  class="btn btn-info"> រក្សាទុក </button>
                             </div><!--End modal body-->
 </form>

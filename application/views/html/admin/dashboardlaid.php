@@ -152,7 +152,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="panel panel-info">
-                            <div class="panel-heading">តុលាការ</div>
+                            <div class="panel-heading">តុលាការ ប្រាក់ឌបត្ថម្ភមេធាវី និង លិខិតបេសកកម្ម</div>
                                 <div class="panel-body"> 
                                         <div class="x_content"> <!-- start x content -->
                                                 
@@ -162,13 +162,13 @@
                             </div>
                         </div>
                     </div>
-                    </div><!-- End  Panel lawyer -->
+                </div><!-- End  Panel lawyer -->
 
-                <div class="col-sm-6"> <!-- Start  Panel ប្រាក់ឌបត្ថម្ភមេធាវី -->
+                <div class="col-sm-6"> <!-- Start  Panel មេធាវីទទួលសំណុំរឿង -->
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="panel panel-info">
-                            <div class="panel-heading">ប្រាក់ឌបត្ថម្ភមេធាវី និង លិខិតបេសកកម្ម</div>
+                            <div class="panel-heading">មេធាវីទទួលសំណុំរឿង</div>
                                 <div class="panel-body"> 
                                         <div class="x_content"> <!-- start x content -->
                                                 
@@ -178,7 +178,23 @@
                             </div>
                         </div>
                     </div>
-                    </div><!-- End  Panel  ប្រាក់ឌបត្ថម្ភមេធាវី  -->  
+                    </div><!-- End  Panel  មេធាវីទទួលសំណុំរឿង  -->  
+
+                <div class="col-sm-12"> <!-- Start  Panel មេធាវីទទួលសំណុំរឿង -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">ឯកសារទាក់ទងសំណុំ​រឿង</div>
+                                <div class="panel-body"> 
+                                        <div class="x_content"> <!-- start x content -->
+                                                
+                            
+                                        </div> <!-- End x content -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div><!-- End  Panel  ឯកសារទាក់ទងសំណុំ​រឿង  -->  
                 </div> <!-- End Body tab lawyer-->
                 <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="client-tab">
                 <p>Client</p>
@@ -255,7 +271,7 @@
                 <h4 class="modal-title text-xs-center">កូនក្តី</h4>
             </div>
             <div class="modal-body"><!--Start modal body -->
-                <div id="messageclient"></div>
+                <div id="messagecourt"></div>
                     <div class="container-fluid">
                         <div class="row">
                         <?php 							

@@ -121,18 +121,41 @@ class CaseRegis_model extends CI_Model{
 	/*
 
 	*/
-	public function CreateCaseByCourt($court,$layourlist){
-		$status = $this->db->insert('case_court',$court);
-		$court_regesid = $this->db->insert_id();
-		$count_lawyer= count($layourlist);
-		
-
-		return ($status===true ? true : false);
+	public function CreateCaseByCourt(){
+		$courtinfo = array(
+    		'caseregisid' => $this->input->post('caseregisid'),
+    		'courtname' => $this->input->post('courtname'),
+    		'letter_req_no' => $this->input->post('letter_req_no'),
+    		'letter_req_date' => $this->input->post('letter_req_date'),
+    		'is_poor' => $this->input->post('is_poor') ,//strtotime(date('Y-m-d h:i:s a')),
+    		'interview_date' => $this->input->post('interview_date'),
+    		'interview_note' => $this->input->post('interview_note'),
+    		'isaprove' => $this->input->post('isaprove'),
+    		'aprove_money_no' => $this->input->post('aprove_money_no'),
+    		'aprove_money_date' => $this->input->post('aprove_money_date') ,
+    		'aprove_by_who' => $this->input->post('aprove_by_who'),
+    		'aprove_money_total' => $this->input->post('aprove_money_total'),
+			'aporve_ispaid' => $this->input->post('aporve_ispaid'),
+			'appove_mission_no' => $this->input->post('appove_mission_no'),
+			'aprove_mission_date' => $this->input->post('aprove_mission_date'),
+			'case_request_note' => $this->input-> post('case_request_note')
+		);
+		$status = $this->db->insert('case_court', $courtinfo);
+		$court_regisid = $this->db->insert_id();
+		$count_lawyer = count($this->input->post('lawyer_name')); // get list of lawyer and loop to insert.
+		for($i = 0; $i < $count_lawyer; $i++){
+			$lawyer=array(
+				'case_court_id' => $court_regisid,
+				'lawyer_name'=> $this->input->post('lawyer_name')[$i],
+				'aprove_appointed_no' => $this->input->post('aprove_appointed_no')[$i],
+				'aprove_appointed_date'=> $this->input->post('aprove_appointed_date')[$i]
+			);
+			$this->db->insert('case_court_appointedlawyer', $lawyer);
+		}
+		return ($status === true ? true : false);
 	}
 
 	
-
-
 	//============= End create module case receive from court =======
 }
 ?>

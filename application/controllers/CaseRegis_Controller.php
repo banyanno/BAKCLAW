@@ -295,6 +295,19 @@ public function getLawyerInfo()
 	echo json_encode($lawyers);
 }
 
+public function createCaseRequestByCourt(){
+	$validator = array('success'=>false,'message'=>array());
+	$insertstatus = $this->CaseRegis_model->CreateCaseByCourt();
+		if ($insertstatus===true){
+			$validator['success'] = true;
+			$validator['messages'] = "Successfully added";
+		}else {
+			$validator['success'] = false;
+			$validator['messages'] = "Error while inserting the information into the database";
+		}
+	echo json_encode($validator);
+}
+
 
 }
 ?>
