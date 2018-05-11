@@ -31,8 +31,6 @@ $(document).ready(function(){
     $('#ModalCaseRegis').modal('show'); // show bootstrap modal
     $('.modal-title').text('Add new case'); // Set Title to Bootstrap modal title
     }
-
-
 function ShowEditeCase(id) {
     save_method = 'update';
      $('#formLAID')[0].reset(); // reset form on modals

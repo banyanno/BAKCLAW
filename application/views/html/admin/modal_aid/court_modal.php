@@ -197,7 +197,7 @@
                                             <thead>
                                                     <tr>
                                                         <th style="width:50%">ឈ្មោះឯកសារ</th>
-                                                        <th style="width:20%">Browse...File</th>
+                                                        <th style="width:20%">Browse... File</th>
                                                         <th style="width:3%"><button type="button" id="add_row_file" class="btn btn-default" onclick="addRowToTableFile()"><i class="fa fa-plus"></i></button></th>
                                                     </tr>
                                                     <tbody>
