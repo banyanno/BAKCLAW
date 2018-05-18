@@ -152,10 +152,36 @@ class CaseRegis_model extends CI_Model{
 			);
 			$this->db->insert('case_court_appointedlawyer', $lawyer);
 		}
+		
+		$courtdoc= count($this->input->post('file_name')); // get list of documents for upload 
+		$config['upload_path'] = 'casedoc';
+		$config['allowed_types'] = 'jpg|jpeg|png|gif';
+       
+		for ($j=0;$j<$courtdoc;$j++){
+			$config['file_name'] = $_FILES['files_browse'[$j]];
+			if ($this->upload->do_upload('files_browse'[$j])){
+				$uploaddata=$this->upload->data();
+				$filename=$uploaddata['file_name'];
+			}else
+			{
+				$filename='';
+			}
+			$fileDoc =array(
+				'case_id' =>$court_regisid,
+				'case_no'=>'Hello',
+				'file_descript' => $this->input->post('file_name')[$j],
+				'file_name'=>$filename
+				//'file_belongto'=>date()
+			);
+			$this->db->insert('case_filestore',$fileDoc);
+		}
 		return ($status === true ? true : false);
 	}
 
-	
+	public function UploadFileByCourt($fils){
+		$status = $this->db->insert('case_filestore',$fils);
+		return ($status===true ? true : false);
+	}
 	//============= End create module case receive from court =======
 }
 ?>
