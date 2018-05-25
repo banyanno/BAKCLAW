@@ -216,7 +216,6 @@ public function DeletedClientByID($clientID){
 		$validator['messages'] = "Error while inserting the information into the database";
 	}
 	echo json_encode($validator);
-	
 }
 
 function GetClientByCaseAndAdult($caseid){

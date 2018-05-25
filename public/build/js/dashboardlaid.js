@@ -112,7 +112,7 @@ function ShowEditeCase(id) {
                     $.each(response.messages, function (index, value) {
                         
                         var key = $("#" + index);
-                        altert(key);
+                        alert(key);
                         key.closest('.form-group')
                             .removeClass('has-error')
                             .removeClass('has-success')
@@ -313,7 +313,7 @@ var url;
                         $.each(response.messages, function (index, value) {
                             
                             var key = $("#" + index);
-                            altert(key);
+                            alert(key);
                             key.closest('.form-group')
                                 .removeClass('has-error')
                                 .removeClass('has-success')
@@ -421,8 +421,8 @@ function addRowToTableFile(){
     var count_table_tboby_tr = $("#file_info_table tbody tr").length;
     var row_id = count_table_tboby_tr + 1;
 	var html ='<tr id="row_'+ row_id +'">' +
-            '<td> <input type="text" name="file_name[]" id="filename_'+ row_id +'" class="form-control" require></td>'+
-            '<td>  <input type="file" name="files_browse[]" id="files_'+ row_id +'"/></td>' +
+            '<td> <input type="text" name="file_descr[]" id="filename_'+ row_id +'" class="form-control" require></td>'+
+            '<td><input type="file" name="files_browse[]" id="files_'+ row_id +'"></td>' +
             '<td><button type="button" class="btn btn-default" onclick="removeRowFile(\''+ row_id +'\')"><i class="fa fa-close"></i></button></td>'+
             '</tr>';
             if(count_table_tboby_tr >= 1){
@@ -449,7 +449,7 @@ function removeAllTableFile(){
 	 $("#file_info_table tbody tr").remove();
 }
 
-function CreateCaseRequestByCourt()
+/*function CreateCaseRequestByCourt()
 {
     var url;
      $(".form-group").removeClass('has-error').removeClass('has-success');
@@ -500,7 +500,86 @@ function CreateCaseRequestByCourt()
                     $.each(response.messages, function (index, value) {
                         
                         var key = $("#" + index);
-                        altert(key);
+                        alert(key);
+                        key.closest('.form-group')
+                            .removeClass('has-error')
+                            .removeClass('has-success')
+                            .addClass(value.length > 0 ? 'has-error' : 'has-success')
+                            .find('.text-danger').remove();
+                            key.after(value);
+
+                    });
+                }
+                //if success close modal and reload ajax table
+                //alert('Save new client successfull');
+                //$('#ModalExample').modal('hide');
+                //location.reload();// for reload a page
+            }
+            //,
+            //error: function (jqXHR, textStatus, errorThrown) {
+            //    alert('Error adding / update data');
+            //}
+        });
+}*/
+
+
+function CreateCaseRequestByCourt()
+{
+    var url;
+     $(".form-group").removeClass('has-error').removeClass('has-success');
+    $("#messagecourt").html(''); // remove message success or fail when save
+    $('.text-danger').remove();
+    if (save_method == 'add') {
+        url = base_url +'/BAKCLAW/CaseRegis_Controller/createCaseRequestByCourt';
+       
+    }
+    else {
+        //alert('update' + clientID);
+        url =base_url +'/BAKCLAW/CaseRegis_Controller/Edit_CaseRegist/'+ caseID;   
+    }
+
+    // ajax adding data to database
+  
+          //var data = $("#formCourt").serialize();
+	  var form = $("#formCourt");
+          $.ajax({
+            url: url,
+            type: "POST",
+             data: new FormData(form[0]),
+             processData:false,
+		     contentType:false,
+		     cache:false,
+		     async:false,
+            success:function(response) {
+				//alert('hello worl');
+                    alert(response.success);
+                   if (response.success==true){     
+                    $("#messagecourt").html('<div class="alert alert-success alert-dismissible" role="alert">' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+                        response.messages +
+                        '</div>');
+                       
+                    if(save_method == 'add'){
+                        $("#messagecourt").html('');
+                        $("#formCourt")[0].reset();
+                       $(".form-group").removeClass('has-error').removeClass('has-success');
+                        $(".text-danger").remove();	
+                       $('#ModalCourt').modal('hide');
+                    } else{
+                        //$("#add-class-messages").html('');
+                        //$("#formLAID")[0].reset();
+                        //$(".form-group").removeClass('has-error').removeClass('has-success');
+                        //$(".text-danger").remove();	
+                       // $('#ModalCaseRegis').modal('hide');
+                    }
+                   
+                }
+                else{
+                   
+                    $.each(response.messages, function (index, value) {
+                        
+                        var key = $("#" + index);
+                        alert(key);
                         key.closest('.form-group')
                             .removeClass('has-error')
                             .removeClass('has-success')
@@ -521,7 +600,6 @@ function CreateCaseRequestByCourt()
             //}
         });
 }
-
 
 
 /*

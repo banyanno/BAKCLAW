@@ -2,7 +2,10 @@
 class CaseRegis_model extends CI_Model{
     public function __construct()
 	{
+		$this->load->helper('url');
 		$this->load->database();
+		$this->load->helper('form');
+		$this->load->library('upload');
     }
 
 	// ======================== Count Total Dashboard ===============================
@@ -122,7 +125,7 @@ class CaseRegis_model extends CI_Model{
 
 	*/
 	public function CreateCaseByCourt(){
-		$courtinfo = array(
+		/*$courtinfo = array(
     		'caseregisid' => $this->input->post('caseregisid'),
     		'courtname' => $this->input->post('courtname'),
     		'letter_req_no' => $this->input->post('letter_req_no'),
@@ -151,31 +154,57 @@ class CaseRegis_model extends CI_Model{
 				'aprove_appointed_date'=> $this->input->post('aprove_appointed_date')[$i]
 			);
 			$this->db->insert('case_court_appointedlawyer', $lawyer);
+		}*/
+		
+		/*$courtdoc= count($this->input->post('file_descr')); // get list of documents for upload 
+		
+		$config['upload_path'] = 'casedoc';
+		$config['allowed_types'] = 'jpg|jpeg|png|gif';*/
+		
+		$countFile = count($_FILES['files_browse']['name']);
+		$filess=$_FILES;
+	
+		for ($j=0;$j<$countFile;$j++){
+			 if(!empty($_FILES['files_browse']['name'][$j])){
+				  // Define new $_FILES array - $_FILES['file']
+          		$_FILES['files_browse']['name'] = $filess['files_browse']['name'][$j];
+				$_FILES['files_browse']['type'] = $filess['files_browse']['type'][$j];
+          		$_FILES['files_browse']['tmp_name'] = $filess['files_browse']['tmp_name'][$j];
+          		$_FILES['files_browse']['error'] = $filess['files_browse']['error'][$j];
+          		$_FILES['files_browse']['size'] = $filess['files_browse']['size'][$j];
+				 
+				 
+				$config['upload_path']="./assets/images"; 
+				$config['allowed_types']='gif|jpg|png';
+				$config['overwrite']=TRUE;
+				$config['remove_spaces']=TRUE;
+				 $config['encrypt_name'] = TRUE;
+				$config['file_name'] = $_FILES['files_browse']['name'][$j];
+				
+				
+				 
+				 // Load upload library:
+				$this->upload->initialize($config);
+				// $this->load->library('upload',$config);
+				    // File upload
+				  if($this->upload->do_upload('files_browse')){
+					// Get data about the file
+					
+					$result['success'] = $this->upload->data();
+					
+					echo json_encode($result);
+					//$filename = $uploadData['file_name'];
+
+					// Initialize array
+					//$data['filenames'][] = $filename;
+				  }
+			 }
+			
+			//$this->db->insert('case_filestore',$fileDoc);
+			
 		}
 		
-		$courtdoc= count($this->input->post('file_name')); // get list of documents for upload 
-		$config['upload_path'] = 'casedoc';
-		$config['allowed_types'] = 'jpg|jpeg|png|gif';
-       
-		for ($j=0;$j<$courtdoc;$j++){
-			$config['file_name'] = $_FILES['files_browse'[$j]];
-			if ($this->upload->do_upload('files_browse'[$j])){
-				$uploaddata=$this->upload->data();
-				$filename=$uploaddata['file_name'];
-			}else
-			{
-				$filename='';
-			}
-			$fileDoc =array(
-				'case_id' =>$court_regisid,
-				'case_no'=>'Hello',
-				'file_descript' => $this->input->post('file_name')[$j],
-				'file_name'=>$filename
-				//'file_belongto'=>date()
-			);
-			$this->db->insert('case_filestore',$fileDoc);
-		}
-		return ($status === true ? true : false);
+		//return ($status === true ? true : false);
 	}
 
 	public function UploadFileByCourt($fils){

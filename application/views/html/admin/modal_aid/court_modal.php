@@ -1,5 +1,5 @@
 
-<form  class="form-horizontal" id="formCourt">
+<form enctype="multipart/form-data" class="form-horizontal" id="formCourt" >
                             <fieldset>
                         
                                 <!-- Form Name -->
@@ -44,7 +44,7 @@
                                 </div>
                                     <div class="col-sm-4"> 
                                             <label for="letter_req_no" class="control-label" >លិខិតស្នើសុំមេធាវី,លេខ៖</label>
-                                            <input type="text"  class="form-control" id="letter_req_no" name="letter_req_no"  placeholder="...">
+                                            <input type="text" name="letter_req_no" class="form-control" id="letter_req_no" name="letter_req_no"  placeholder="...">
                                     </div>
                                     <div class="col-sm-4">
                                         <label for="letter_req_date" class="control-label" >ចុះថ្ងៃទី៖</label>
@@ -203,10 +203,10 @@
                                                     <tbody>
                                                             <tr id="row_1">
                                                                 <td>
-                                                               	<input type="text" name="file_name[]" id="filename_1" class="form-control" required/>
+                                                               	<input type="text" name="file_descr[]" id="filename_1" class="form-control" required/>
                                                                 </td>
                                                                 <td>
-                                                                   <input type="file" name="files_browse[]" id="files_1"/>
+                                                                   <input type="file" name="files_browse[]" id="files_1">
                                                                 </td>
                                                                 <td><button type="button" class="btn btn-default" onclick="removeRowFile('1')"><i class="fa fa-close"></i></button></td>
                                                             </tr>
@@ -222,7 +222,7 @@
                                      </div> <!-- main tab in court-->
                                     </div> <!--end group-->
                             </fieldset>
-                        
+                        	
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal"> បិត </button>
                                 <button type="button" id="btnSave"  onclick="CreateCaseRequestByCourt()"  class="btn btn-info"> រក្សាទុក </button>

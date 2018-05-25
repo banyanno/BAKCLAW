@@ -1,4 +1,0 @@
-18-03-2018 6:42 am {"lawyers":"{\"message\":\"Information is required!\"}","education":"","discipline":"","conditions":""}
-18-03-2018 7:01 am {"message":"success","return_id":52}
-18-03-2018 7:01 am {"lawyer_id":52,"date_of_completion":"","date_of_prob":"","is_pursue_study":"0","date_of_fulltime":"","date_of_righteousness":"","date_of_without_righteousness":"","date_of_prob_righteousness":"","no_prob_righteousness":"","fulltime_approval":"","firm_name":"","authorisation_number":"","permission_number":"","firm_validity":"","out_bar_validity":"","out_bar_decision":"","prohibition_statement":"","modidate":"18-03-2018 7:01 am"}
-18-03-2018 7:01 am {"lawyers":"{\"message\":\"success\",\"return_id\":52}","education":"","discipline":"","conditions":"{\"message\":\"PC has been saved!\"}"}
