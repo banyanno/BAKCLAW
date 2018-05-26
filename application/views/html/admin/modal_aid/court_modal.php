@@ -110,7 +110,6 @@
                                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist"><!-- start nav tab bar -->
                                             <li role="presentation" class="active"><a href="#tab_requestlawyer" id="requestlawyer-tab1" role="tab" data-toggle="tab" aria-expanded="true">ចាត់តាំងមេធាវី</a></li>
                                             <li role="presentation" class=""><a href="#tab_moneylawyer" id="money-tab" role="tab" data-toggle="tab" aria-expanded="false">ប្រាក់ឌបត្តម្ហមេធាវី</a></li>
-                                            <li role="presentation" class=""><a href="#tab_fileuploadlawyer" id="money-tab" role="tab" data-toggle="tab" aria-expanded="false">Files Upload</a></li>
                                         </ul>  <!-- End nav tab bar -->
                                         <div id="myTabContent" class="tab-content"> <!-- start tab body -->
                                        
