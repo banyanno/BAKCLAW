@@ -125,7 +125,7 @@ class CaseRegis_model extends CI_Model{
 
 	*/
 	public function CreateCaseByCourt(){
-		/*$courtinfo = array(
+		$courtinfo = array(
     		'caseregisid' => $this->input->post('caseregisid'),
     		'courtname' => $this->input->post('courtname'),
     		'letter_req_no' => $this->input->post('letter_req_no'),
@@ -154,14 +154,10 @@ class CaseRegis_model extends CI_Model{
 				'aprove_appointed_date'=> $this->input->post('aprove_appointed_date')[$i]
 			);
 			$this->db->insert('case_court_appointedlawyer', $lawyer);
-		}*/
+		}
 		
-		/*$courtdoc= count($this->input->post('file_descr')); // get list of documents for upload 
-		
-		$config['upload_path'] = 'casedoc';
-		$config['allowed_types'] = 'jpg|jpeg|png|gif';*/
-		
-		$countFile = count($_FILES['files_browse']['name']);
+
+		/*$countFile = count($_FILES['files_browse']['name']);
 		$filess=$_FILES;
 	
 		for ($j=0;$j<$countFile;$j++){
@@ -192,25 +188,16 @@ class CaseRegis_model extends CI_Model{
 					
 					$result['success'] = $this->upload->data();
 					
-					echo json_encode($result);
+					//echo json_encode($result);
 					//$filename = $uploadData['file_name'];
 
 					// Initialize array
 					//$data['filenames'][] = $filename;
-				  }
-			 }
-			
-			//$this->db->insert('case_filestore',$fileDoc);
-			
-		}
-		
-		//return ($status === true ? true : false);
+				  }*/
+			 //$this->db->insert('case_filestore',$fileDoc);
+	return ($status === true ? true : false);
 	}
-
-	public function UploadFileByCourt($fils){
-		$status = $this->db->insert('case_filestore',$fils);
-		return ($status===true ? true : false);
-	}
+	
 	//============= End create module case receive from court =======
 }
 ?>

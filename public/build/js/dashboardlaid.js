@@ -540,19 +540,19 @@ function CreateCaseRequestByCourt()
 
     // ajax adding data to database
   
-          //var data = $("#formCourt").serialize();
-	  var form = $("#formCourt");
+         // var data = $("#formCourt").serialize();
+	 var form = $("#formCourt");
           $.ajax({
             url: url,
             type: "POST",
-             data: new FormData(form[0]),
-             processData:false,
-		     contentType:false,
+             data:new FormData(form[0]),
+            processData:false,
+		    contentType:false,
 		     cache:false,
 		     async:false,
             success:function(response) {
 				//alert('hello worl');
-                    alert(response.success);
+                  //  alert(response.success);
                    if (response.success==true){     
                     $("#messagecourt").html('<div class="alert alert-success alert-dismissible" role="alert">' +
                         '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
