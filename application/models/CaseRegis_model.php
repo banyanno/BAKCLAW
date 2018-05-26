@@ -2,7 +2,10 @@
 class CaseRegis_model extends CI_Model{
     public function __construct()
 	{
+		$this->load->helper('url');
 		$this->load->database();
+		$this->load->helper('form');
+		$this->load->library('upload');
     }
 
 	// ======================== Count Total Dashboard ===============================
@@ -152,9 +155,48 @@ class CaseRegis_model extends CI_Model{
 			);
 			$this->db->insert('case_court_appointedlawyer', $lawyer);
 		}
-		return ($status === true ? true : false);
-	}
+		
 
+		/*$countFile = count($_FILES['files_browse']['name']);
+		$filess=$_FILES;
+	
+		for ($j=0;$j<$countFile;$j++){
+			 if(!empty($_FILES['files_browse']['name'][$j])){
+				  // Define new $_FILES array - $_FILES['file']
+          		$_FILES['files_browse']['name'] = $filess['files_browse']['name'][$j];
+				$_FILES['files_browse']['type'] = $filess['files_browse']['type'][$j];
+          		$_FILES['files_browse']['tmp_name'] = $filess['files_browse']['tmp_name'][$j];
+          		$_FILES['files_browse']['error'] = $filess['files_browse']['error'][$j];
+          		$_FILES['files_browse']['size'] = $filess['files_browse']['size'][$j];
+				 
+				 
+				$config['upload_path']="./assets/images"; 
+				$config['allowed_types']='gif|jpg|png';
+				$config['overwrite']=TRUE;
+				$config['remove_spaces']=TRUE;
+				 $config['encrypt_name'] = TRUE;
+				$config['file_name'] = $_FILES['files_browse']['name'][$j];
+				
+				
+				 
+				 // Load upload library:
+				$this->upload->initialize($config);
+				// $this->load->library('upload',$config);
+				    // File upload
+				  if($this->upload->do_upload('files_browse')){
+					// Get data about the file
+					
+					$result['success'] = $this->upload->data();
+					
+					//echo json_encode($result);
+					//$filename = $uploadData['file_name'];
+
+					// Initialize array
+					//$data['filenames'][] = $filename;
+				  }*/
+			 //$this->db->insert('case_filestore',$fileDoc);
+	return ($status === true ? true : false);
+	}
 	
 	//============= End create module case receive from court =======
 }

@@ -184,7 +184,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="panel panel-info">
-                            <div class="panel-heading">ឯកសារទាក់ទងសំណុំ​រឿង</div>
+                            <div class="panel-heading">ឯកសារទាក់ទងសំណុំរឿង</div>
                                 <div class="panel-body"> 
                                         <div class="x_content"> <!-- start x content -->
                                                 

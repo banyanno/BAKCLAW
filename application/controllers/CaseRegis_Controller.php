@@ -100,8 +100,7 @@ public function fetchAllCaseRegis(){
 		foreach ($caseRegis as $key => $value) {
 	
 		$viewdetial = '<!-- Single button glyphicons glyphicons-sort-by-alphabet -->
-		<button class="btn btn-warning btn-xs btn-round"  onclick="FetchClientByCase('. $value['caseid'] .')"><i class="glyphicon glyphicon-hand-down"></i></button>
-		​​​​​  <button class="btn btn-danger btn-xs btn-round" onclick="ShowEditeCase('. $value['caseid'] .')" data-toggle="tooltip" data-pacement="botton" data-original-title="កែប្រសំណុំរឿង"><i class="glyphicon glyphicon-edit"></i></button>
+		<button class="btn btn-warning btn-xs btn-round"  onclick="FetchClientByCase('. $value['caseid'] .')"><i class="glyphicon glyphicon-hand-down"></i></button>  <button class="btn btn-danger btn-xs btn-round" onclick="ShowEditeCase('. $value['caseid'] .')" data-toggle="tooltip" data-pacement="botton" data-original-title="កែប្រសំណុំរឿង"><i class="glyphicon glyphicon-edit"></i></button>
 				<div class="btn-group">
 				<button type="button" class="btn btn-success btn-effect-ripple  dropdown-toggle btn-xs btn-round" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">បង្កើត...
 				  <span class="caret"></span>
@@ -216,7 +215,6 @@ public function DeletedClientByID($clientID){
 		$validator['messages'] = "Error while inserting the information into the database";
 	}
 	echo json_encode($validator);
-	
 }
 
 function GetClientByCaseAndAdult($caseid){
